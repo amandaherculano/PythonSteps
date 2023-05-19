@@ -55,7 +55,7 @@ public class Categoria4Page extends javax.swing.JFrame {
             }
             
              //adicionar id das linhas no listID
-            String SQLQuestionID = "SELECT `idQuestao` FROM `pythonsteps`.`questoes` WHERE `categoria` = " + categoria;
+            String SQLQuestionID = "SELECT `id` FROM `pythonsteps`.`questoes` WHERE `categoria` = " + categoria;
             ResultSet idLinha = stmt.executeQuery(SQLQuestionID);
             
             while(idLinha.next()){
@@ -69,7 +69,7 @@ public class Categoria4Page extends javax.swing.JFrame {
             int elementId = listID.get(rand.nextInt(listID.size())); //gera um índice aleatorio
             jogador.AddPerguntas4(elementId);
             
-            String SQLQuestion2 = "SELECT * FROM `pythonsteps`.`questoes` WHERE `idQuestao` = " + elementId;
+            String SQLQuestion2 = "SELECT * FROM `pythonsteps`.`questoes` WHERE `id` = " + elementId;
             ResultSet resultado = stmt.executeQuery(SQLQuestion2);
             
             while (resultado.next()){
@@ -183,7 +183,7 @@ public class Categoria4Page extends javax.swing.JFrame {
             if (selecionada == correta){
               jogador.AddPontuacao(peso);
               JOptionPane.showMessageDialog(null, "Resposta correta.");
-              System.out.println(jogador.getPontuacao());
+              //System.out.println(jogador.getPontuacao());
             }
             else {
                 JOptionPane.showMessageDialog(null, "Resposta errada.", "RESPOSTA",JOptionPane.ERROR_MESSAGE);

@@ -4,6 +4,13 @@
  */
 package jframe;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import jutil.conector;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author alexa
@@ -15,7 +22,31 @@ public class ConsultarPage extends javax.swing.JFrame {
      */
     public ConsultarPage() {
         initComponents();
-    }
+        
+        
+        
+        try (Connection con = conector.getConnection();) {
+            
+            Statement stmt = con.createStatement();
+            String SQLQuestion = "SELECT * FROM `pythonsteps`.`questoes`"; //todas as colunas questoes
+            ResultSet rs = stmt.executeQuery(SQLQuestion);
+            DefaultTableModel model = (DefaultTableModel)questoes.getModel();
+            while (rs.next()){
+                String enunciado = String.valueOf(rs.getNString("enunciado"));
+                String alternativaA = String.valueOf(rs.getNString("alternativaA"));
+                String alternativaB = String.valueOf(rs.getNString("alternativaB"));
+                String alternativaC = String.valueOf(rs.getNString("alternativaC"));
+                String alternativaD = String.valueOf(rs.getNString("alternativaD"));
+                String correta = String.valueOf(rs.getInt("correta"));
+                String categoria = String.valueOf(rs.getInt("categoria"));
+                String peso = String.valueOf(rs.getInt("peso"));
+                String explicacao = String.valueOf(rs.getNString("feedback"));
+                
+                model.addRow(new String[]{enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, peso, explicacao});
+            }       
+            
+        } catch (Exception e) {
+            System.err.println(e); }}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,11 +57,76 @@ public class ConsultarPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        home = new javax.swing.JButton();
+        logOut = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        questoes = new javax.swing.JTable();
+        ConsultarFundo = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeIcon.jpg"))); // NOI18N
+        home.setBorder(null);
+        home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, -1, -1));
+
+        logOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut.icon.jpg"))); // NOI18N
+        logOut.setBorder(null);
+        logOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(logOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 620, -1, -1));
+
+        questoes.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        questoes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Enunciado", "Alternativa A", "Alternativa B", "Alternativa C", "Alternativa D", "Alternativa correta", "Explicação", "Peso", "Categoria"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(questoes);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 1250, 520));
+
+        ConsultarFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LoginPage.png"))); // NOI18N
+        getContentPane().add(ConsultarFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+        // TODO add your handling code here:
+        HomeAdminPage frame = new HomeAdminPage();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_homeActionPerformed
+
+    private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
+        // TODO add your handling code here:
+        LoginPage1 frame = new LoginPage1();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_logOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -68,5 +164,10 @@ public class ConsultarPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ConsultarFundo;
+    private javax.swing.JButton home;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton logOut;
+    private javax.swing.JTable questoes;
     // End of variables declaration//GEN-END:variables
 }
