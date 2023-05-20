@@ -18,12 +18,20 @@ public class Jogador {
     ArrayList perguntas3 = new ArrayList <>();
     ArrayList perguntas4 = new ArrayList <>();
     int pontuacao = 0;
-   
+    int selecionada =0;
+    
     
     public void Addvezes(int i){
         this.vezes += 1 ;
     }
    
+    public void AddSelecionada(int i){
+        this.selecionada += 1;
+    }
+    
+    public int getSelecionada(){
+        return selecionada;
+    }
     
     public int getVezes(){
         return vezes;
@@ -70,4 +78,3 @@ public class Jogador {
     }
     
 }
-

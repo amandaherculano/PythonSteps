@@ -10,39 +10,38 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import jutil.conector;
+
 import javax.swing.table.DefaultTableModel;
+
+
 /**
  *
  * @author alexa
  */
 public class ConsultarPage extends javax.swing.JFrame {
-
+   
     /**
      * Creates new form ConsultarPage
      */
     public ConsultarPage() {
         initComponents();
-        
-        
-        
+       
         try (Connection con = conector.getConnection();) {
             
             Statement stmt = con.createStatement();
-            String SQLQuestion = "SELECT * FROM `pythonsteps`.`questoes`"; //todas as colunas questoes
+            String SQLQuestion = "SELECT * FROM `pythonsteps`.`questoes` ORDER BY categoria"; //todas as colunas questoes
             ResultSet rs = stmt.executeQuery(SQLQuestion);
             DefaultTableModel model = (DefaultTableModel)questoes.getModel();
+            questoes.getColumnModel().getColumn(0).setPreferredWidth(200);
+            questoes.getColumnModel().getColumn(2).setMaxWidth(100); 
+            questoes.getColumnModel().getColumn(1).setMaxWidth(100);
+            
             while (rs.next()){
                 String enunciado = String.valueOf(rs.getNString("enunciado"));
-                String alternativaA = String.valueOf(rs.getNString("alternativaA"));
-                String alternativaB = String.valueOf(rs.getNString("alternativaB"));
-                String alternativaC = String.valueOf(rs.getNString("alternativaC"));
-                String alternativaD = String.valueOf(rs.getNString("alternativaD"));
-                String correta = String.valueOf(rs.getInt("correta"));
                 String categoria = String.valueOf(rs.getInt("categoria"));
                 String peso = String.valueOf(rs.getInt("peso"));
-                String explicacao = String.valueOf(rs.getNString("feedback"));
                 
-                model.addRow(new String[]{enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, peso, explicacao});
+                model.addRow(new String[]{enunciado, peso, categoria});
             }       
             
         } catch (Exception e) {
@@ -84,24 +83,33 @@ public class ConsultarPage extends javax.swing.JFrame {
         });
         getContentPane().add(logOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 620, -1, -1));
 
-        questoes.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        questoes.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         questoes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Enunciado", "Alternativa A", "Alternativa B", "Alternativa C", "Alternativa D", "Alternativa correta", "Explicação", "Peso", "Categoria"
+                "Enunciado", "Dificuldade", "Categoria"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        questoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                questoesMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(questoes);
@@ -127,6 +135,17 @@ public class ConsultarPage extends javax.swing.JFrame {
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_logOutActionPerformed
+
+    private void questoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_questoesMouseClicked
+        // TODO add your handling code here:
+        
+        int SelectedRowIndex = questoes.getSelectedRow()+ 1;
+        System.out.print(SelectedRowIndex + 1);
+        //jogador.AddSelecionada(SelectedRowIndex );
+        //System.out.println(jogador.getSelecionada());
+        QuestaoSelecionada frame = new QuestaoSelecionada();
+        frame.setVisible(true);
+    }//GEN-LAST:event_questoesMouseClicked
 
     /**
      * @param args the command line arguments

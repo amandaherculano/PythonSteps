@@ -145,72 +145,74 @@ public class FeedbackPage extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         enunciado.setEditable(false);
-        enunciado.setBackground(new java.awt.Color(236, 233, 233));
+        enunciado.setBackground(new java.awt.Color(48, 131, 182));
         enunciado.setColumns(20);
         enunciado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         enunciado.setRows(5);
         enunciado.setBorder(null);
-        getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 1330, 130));
+        getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 1190, 140));
 
         alternativaA.setEditable(false);
         alternativaA.setBackground(new java.awt.Color(255, 255, 255));
         alternativaA.setColumns(20);
         alternativaA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         alternativaA.setRows(5);
-        alternativaA.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 153, 153)));
-        getContentPane().add(alternativaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 1310, 70));
+        alternativaA.setBorder(null);
+        alternativaA.setMaximumSize(new java.awt.Dimension(72, 7));
+        alternativaA.setMinimumSize(new java.awt.Dimension(72, 7));
+        getContentPane().add(alternativaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 1190, 70));
 
         alternativaB.setEditable(false);
         alternativaB.setBackground(new java.awt.Color(255, 255, 255));
         alternativaB.setColumns(20);
         alternativaB.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         alternativaB.setRows(5);
-        alternativaB.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 153, 153)));
-        getContentPane().add(alternativaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 1310, 70));
+        alternativaB.setBorder(null);
+        getContentPane().add(alternativaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 1190, 70));
 
         alternativaC.setEditable(false);
         alternativaC.setBackground(new java.awt.Color(255, 255, 255));
         alternativaC.setColumns(20);
         alternativaC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         alternativaC.setRows(5);
-        alternativaC.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 153, 153)));
-        getContentPane().add(alternativaC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 1310, 80));
+        alternativaC.setBorder(null);
+        getContentPane().add(alternativaC, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 1190, 80));
 
         alternativaD.setEditable(false);
         alternativaD.setBackground(new java.awt.Color(255, 255, 255));
         alternativaD.setColumns(20);
         alternativaD.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         alternativaD.setRows(5);
-        alternativaD.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 153, 153)));
+        alternativaD.setBorder(null);
         alternativaD.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(alternativaD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 1310, 80));
+        getContentPane().add(alternativaD, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 1190, 80));
 
         feedback.setEditable(false);
         feedback.setBackground(new java.awt.Color(253, 217, 108));
         feedback.setColumns(20);
         feedback.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         feedback.setRows(5);
-        feedback.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 153, 153)));
+        feedback.setBorder(null);
         feedback.setCaretColor(new java.awt.Color(255, 204, 0));
-        getContentPane().add(feedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 1310, 70));
+        getContentPane().add(feedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, 1190, 70));
 
         textoPeso.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         textoPeso.setForeground(new java.awt.Color(255, 255, 255));
         textoPeso.setText("peso questão:");
-        getContentPane().add(textoPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+        getContentPane().add(textoPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
         peso.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         peso.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 50, 30));
+        getContentPane().add(peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 50, 30));
 
         pontuacao.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         pontuacao.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(pontuacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 10, 60, 30));
+        getContentPane().add(pontuacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 10, 60, 30));
 
         textoPontuacao.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         textoPontuacao.setForeground(new java.awt.Color(255, 255, 255));
         textoPontuacao.setText("pontuação total:");
-        getContentPane().add(textoPontuacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 10, -1, -1));
+        getContentPane().add(textoPontuacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, -1, -1));
 
         tituloFeedBack.setFont(new java.awt.Font("Book Antiqua", 0, 36)); // NOI18N
         tituloFeedBack.setForeground(new java.awt.Color(0, 51, 153));

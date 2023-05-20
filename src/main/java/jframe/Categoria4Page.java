@@ -157,7 +157,7 @@ public class Categoria4Page extends javax.swing.JFrame {
         enunciado.setRows(5);
         enunciado.setAutoscrolls(false);
         enunciado.setBorder(null);
-        getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 1190, 110));
+        getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 1190, 140));
 
         Categoria4Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Categoria4Page.png"))); // NOI18N
         getContentPane().add(Categoria4Fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 786));

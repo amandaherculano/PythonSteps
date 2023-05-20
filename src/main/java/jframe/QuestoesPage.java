@@ -133,9 +133,9 @@ public class QuestoesPage extends javax.swing.JFrame {
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
         // TODO add your handling code here:
-        ConsultarPage frame = new ConsultarPage();
-        frame.setVisible(true);
-        this.setVisible(false);
+        //ConsultarPage frame = new ConsultarPage();
+       //frame.setVisible(true);
+        //this.setVisible(false);
     }//GEN-LAST:event_consultarActionPerformed
 
     private void deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarActionPerformed

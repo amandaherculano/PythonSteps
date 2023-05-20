@@ -359,7 +359,7 @@ public class CriarPage extends javax.swing.JFrame {
                 
                 stmt.close();
                 existeQuestao.close();
-                    }
+            }
             
         } catch (Exception e) {
             System.out.println(e);

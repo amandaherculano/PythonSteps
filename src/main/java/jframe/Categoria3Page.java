@@ -159,7 +159,7 @@ public class Categoria3Page extends javax.swing.JFrame {
         enunciado.setRows(5);
         enunciado.setAutoscrolls(false);
         enunciado.setBorder(null);
-        getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 1190, 110));
+        getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 1190, 140));
 
         Categoria3Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Categoria3Page.png"))); // NOI18N
         getContentPane().add(Categoria3Fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
