@@ -4,6 +4,15 @@
  */
 package jframe;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import jutil.conector;
+import jutil.Jogador;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author alexa
@@ -15,6 +24,29 @@ public class ResultadosIndividualPage extends javax.swing.JFrame {
      */
     public ResultadosIndividualPage() {
         initComponents();
+        
+        
+        try (Connection con = conector.getConnection();) {
+            
+            Statement stmt = con.createStatement();
+            //trocar para jogador.getID()
+            String SQLQuestion = "SELECT R.nome, R.ra, R.nota FROM `pythonsteps`.`resultados` R , `pythonsteps`.`usuarios` U WHERE U.idUsuario = 2 ORDER BY idTentativa";
+            ResultSet rs = stmt.executeQuery(SQLQuestion);
+            DefaultTableModel model = (DefaultTableModel)resultado.getModel();
+            resultado.getColumnModel().getColumn(0).setPreferredWidth(200);
+            resultado.getColumnModel().getColumn(2).setMaxWidth(100); 
+            resultado.getColumnModel().getColumn(1).setMaxWidth(100);
+            
+            while (rs.next()){
+                String nome = String.valueOf(rs.getNString("nome"));
+                String ra = String.valueOf(rs.getNString("ra"));
+                String pontuacao = String.valueOf(rs.getInt("nota"));
+                
+                model.addRow(new String[]{nome, ra, pontuacao});
+            }
+            
+        } catch (Exception e) {
+            System.err.println(e); }
     }
 
     /**

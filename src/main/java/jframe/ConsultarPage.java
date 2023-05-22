@@ -63,6 +63,7 @@ public class ConsultarPage extends javax.swing.JFrame {
         titulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         questoes = new javax.swing.JTable();
+        voltar = new javax.swing.JButton();
         ConsultarFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -122,6 +123,15 @@ public class ConsultarPage extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 1250, 520));
 
+        voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeIcon.jpg"))); // NOI18N
+        voltar.setBorder(null);
+        voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 610, -1, -1));
+
         ConsultarFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LoginPage.png"))); // NOI18N
         getContentPane().add(ConsultarFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -152,6 +162,13 @@ public class ConsultarPage extends javax.swing.JFrame {
         QuestaoSelecionada frame = new QuestaoSelecionada();
         frame.setVisible(true);
     }//GEN-LAST:event_questoesMouseClicked
+
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
+        // TODO add your handling code here:
+        QuestoesPage frame = new QuestoesPage();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_voltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,5 +212,6 @@ public class ConsultarPage extends javax.swing.JFrame {
     private javax.swing.JButton logOut;
     private javax.swing.JTable questoes;
     private javax.swing.JLabel titulo;
+    private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

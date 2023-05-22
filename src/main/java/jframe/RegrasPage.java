@@ -54,7 +54,6 @@ public class RegrasPage extends javax.swing.JFrame {
     private void setaVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setaVoltarActionPerformed
         // TODO add your handling code here:
         
-        
         HomePage frame = new HomePage();
         frame.setVisible(true);
         this.setVisible(false);

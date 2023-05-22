@@ -152,6 +152,7 @@ public class LoginPage1 extends javax.swing.JFrame {
 
     private void entrarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarBotaoActionPerformed
         // TODO add your handling code here:
+        
         try (Connection con = conector.getConnection();) {
             Statement stmt = con.createStatement();
 
@@ -162,6 +163,10 @@ public class LoginPage1 extends javax.swing.JFrame {
                 if (rs.getNString("senha") == null ? senhaInserir.getText() == null : rs.getNString("senha").equals(senhaInserir.getText())) {
                     if (rs.getNString("admin").equals("0")) {
                         JOptionPane.showMessageDialog(null, "Conectando!");
+                        //jogador.SalvarRA(rs.getNString("nome"));
+                        //jogador.SalvarRA(rs.getNString("ra"));
+                        //jogador.SalvarID(rs.getInt("idUusuario"));
+                        
                         HomePage frame = new HomePage();
                         frame.setVisible(true);
                         this.setVisible(false);

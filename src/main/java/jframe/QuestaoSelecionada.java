@@ -30,7 +30,8 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
         
         
         try (Connection con = conector.getConnection();) {
-            
+            //mudar para guardar o id da questão de acordo com a RowSelected e exibir baseado no id
+            //jogador.getSelecionadaID()
             Statement stmt = con.createStatement();
             String SQLExibir = "WITH `OrdemLinhas` AS (SELECT `id`, `enunciado`, `alternativaA`, `alternativaB`, `alternativaC`, `alternativaD`, `correta`, `categoria`, `feedback`, `peso`,  ROW_NUMBER() OVER (ORDER BY `categoria`) AS `RowNumbers` FROM `pythonsteps`.`questoes` ) SELECT * FROM `OrdemLinhas` WHERE `RowNumbers` = " + 1     ; //retorna linha selecionada
             ResultSet linhaSelecionada = stmt.executeQuery(SQLExibir);
@@ -408,10 +409,11 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
                 else if(dificil.isSelected()){
                     peso = 3;
                 }
-            
-            PreparedStatement SQLAlterar = con.PreparedStatement( "UPDATE `pythonsteps`.`questoes` SET enunciado = '" + enunciado.getText() + "', alternativaA = '" + A.getText() + "', alternativaB = '" + B.getText() + "', alterntivaC = '" + C.getText() + "', alternativaD = '" + D.getText() + "', feedback = '" + feedback.getText() + "', correta = " + correta + " categoria = " + categoria + ", peso = " + peso + " WHERE id = " + id);
+            //trocar para get.SelecionadaID
+            PreparedStatement SQLAlterar = con.prepareStatement( "UPDATE `pythonsteps`.`questoes` SET enunciado = '" + enunciado.getText() + "', alternativaA = '" + A.getText() + "', alternativaB = '" + B.getText() + "', alternativaC = '" + C.getText() + "', alternativaD = '" + D.getText() + "', correta = " + correta + ", categoria = " + categoria + ", feedback = '" + feedback.getText() + "', peso = " + peso + " WHERE id = " + 1 );
             SQLAlterar.execute();
             
+            SQLAlterar.close();
             
             } catch (Exception e) {
                 System.err.println(e); 
@@ -437,8 +439,8 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
     private void deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarActionPerformed
         // TODO add your handling code here:
         try (Connection con = conector.getConnection();){
-            
-            PreparedStatement SQLDeletar = con.PreparedStatement( "DELETE FROM `pythonsteps`.`questoes` WHERE id = " + id);
+            //jogador.getSelecionadaID()
+            PreparedStatement SQLDeletar = con.prepareStatement( "DELETE FROM `pythonsteps`.`questoes` WHERE id = " + 1);
             SQLDeletar.execute();
             
         } catch (Exception e) {

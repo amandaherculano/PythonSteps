@@ -38,7 +38,7 @@ public class FeedbackPage extends javax.swing.JFrame {
         this.jogador = jogador;
         setPerguntas();
         ExibirPontuacao();
-        
+         
     }
     //criar uma lista com todas os IDs das questões sorteadas
     public void setPerguntas(){

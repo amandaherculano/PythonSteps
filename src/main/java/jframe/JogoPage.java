@@ -3,14 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package jframe;
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.Random;
 import jutil.Jogador;
+import jutil.conector;
 /**
  *
  * @author alexa
  */
 public class JogoPage extends javax.swing.JFrame {
-
+    
+    
     /**
      * Creates new form JogoPage
      */

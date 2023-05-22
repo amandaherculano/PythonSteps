@@ -4,6 +4,12 @@
  */
 package jframe;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+import jutil.conector;
+
 /**
  *
  * @author alexa
@@ -15,6 +21,28 @@ public class ResultadosAdminPage extends javax.swing.JFrame {
      */
     public ResultadosAdminPage() {
         initComponents();
+        
+        try (Connection con = conector.getConnection();) {
+            
+            Statement stmt = con.createStatement();
+            String SQLQuestion = "SELECT nome, ra, nota FROM `pythonsteps`.`resultados` ORDER BY nome";
+            ResultSet rs = stmt.executeQuery(SQLQuestion);
+            DefaultTableModel model = (DefaultTableModel)resultado.getModel();
+            resultado.getColumnModel().getColumn(0).setPreferredWidth(200);
+            resultado.getColumnModel().getColumn(2).setMaxWidth(100); 
+            resultado.getColumnModel().getColumn(1).setMaxWidth(100);
+            
+            while (rs.next()){
+                String nome = String.valueOf(rs.getNString("nome"));
+                String ra = String.valueOf(rs.getNString("ra"));
+                String pontuacao = String.valueOf(rs.getInt("nota"));
+                
+                model.addRow(new String[]{nome, ra, pontuacao});
+            }
+            
+        } catch (Exception e) {
+            System.err.println(e); }
+       
     }
 
     /**

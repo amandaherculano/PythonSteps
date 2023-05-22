@@ -37,7 +37,7 @@ public class CriarPage extends javax.swing.JFrame {
         categorias = new javax.swing.ButtonGroup();
         pesos = new javax.swing.ButtonGroup();
         corretas = new javax.swing.ButtonGroup();
-        home = new javax.swing.JButton();
+        voltar = new javax.swing.JButton();
         textoEnunciado = new javax.swing.JLabel();
         textoA = new javax.swing.JLabel();
         textoB = new javax.swing.JLabel();
@@ -71,14 +71,14 @@ public class CriarPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeIcon.jpg"))); // NOI18N
-        home.setBorder(null);
-        home.addActionListener(new java.awt.event.ActionListener() {
+        voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeIcon.jpg"))); // NOI18N
+        voltar.setBorder(null);
+        voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeActionPerformed(evt);
+                voltarActionPerformed(evt);
             }
         });
-        getContentPane().add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, -1, -1));
+        getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, -1, -1));
 
         textoEnunciado.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         textoEnunciado.setForeground(new java.awt.Color(255, 255, 255));
@@ -371,12 +371,12 @@ public class CriarPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_peso2ActionPerformed
 
-    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
-        HomeAdminPage frame = new HomeAdminPage();
+        QuestoesPage frame = new QuestoesPage();
         frame.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_homeActionPerformed
+    }//GEN-LAST:event_voltarActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
         // TODO add your handling code here:
@@ -450,7 +450,6 @@ public class CriarPage extends javax.swing.JFrame {
     private javax.swing.JButton criar;
     private javax.swing.JTextArea enunciado;
     private javax.swing.JTextArea feedback;
-    private javax.swing.JButton home;
     private javax.swing.JButton logOut;
     private javax.swing.JCheckBox peso1;
     private javax.swing.JCheckBox peso2;
@@ -464,5 +463,6 @@ public class CriarPage extends javax.swing.JFrame {
     private javax.swing.JLabel textoD;
     private javax.swing.JLabel textoEnunciado;
     private javax.swing.JLabel textoPeso;
+    private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }
