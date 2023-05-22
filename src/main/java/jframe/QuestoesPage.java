@@ -30,8 +30,6 @@ public class QuestoesPage extends javax.swing.JFrame {
         logOut = new javax.swing.JButton();
         criar = new javax.swing.JButton();
         consultar = new javax.swing.JButton();
-        alterar = new javax.swing.JButton();
-        deletar = new javax.swing.JButton();
         QuestoesFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,11 +63,11 @@ public class QuestoesPage extends javax.swing.JFrame {
                 criarActionPerformed(evt);
             }
         });
-        getContentPane().add(criar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 190, 80));
+        getContentPane().add(criar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 190, 80));
 
-        consultar.setBackground(new java.awt.Color(0, 204, 255));
+        consultar.setBackground(new java.awt.Color(0, 102, 204));
         consultar.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        consultar.setForeground(new java.awt.Color(102, 102, 255));
+        consultar.setForeground(new java.awt.Color(102, 204, 255));
         consultar.setText("CONSULTAR");
         consultar.setToolTipText("");
         consultar.setBorder(null);
@@ -78,31 +76,7 @@ public class QuestoesPage extends javax.swing.JFrame {
                 consultarActionPerformed(evt);
             }
         });
-        getContentPane().add(consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 330, 210, 80));
-
-        alterar.setBackground(new java.awt.Color(204, 204, 255));
-        alterar.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        alterar.setForeground(new java.awt.Color(0, 102, 204));
-        alterar.setText("ALTERAR");
-        alterar.setBorder(null);
-        alterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alterarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(alterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 190, 90));
-
-        deletar.setBackground(new java.awt.Color(0, 204, 204));
-        deletar.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        deletar.setForeground(new java.awt.Color(51, 0, 153));
-        deletar.setText("DELETAR");
-        deletar.setBorder(null);
-        deletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deletarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 200, 210, 90));
+        getContentPane().add(consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 280, 210, 80));
 
         QuestoesFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/QuestoesPage.png"))); // NOI18N
         getContentPane().add(QuestoesFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -124,26 +98,12 @@ public class QuestoesPage extends javax.swing.JFrame {
         this.setVisible(false);        
     }//GEN-LAST:event_criarActionPerformed
 
-    private void alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarActionPerformed
-        // TODO add your handling code here:
-        AlterarPage frame = new AlterarPage();
-        frame.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_alterarActionPerformed
-
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
         // TODO add your handling code here:
-        //ConsultarPage frame = new ConsultarPage();
-       //frame.setVisible(true);
-        //this.setVisible(false);
-    }//GEN-LAST:event_consultarActionPerformed
-
-    private void deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarActionPerformed
-        // TODO add your handling code here:
-        DeletarPage frame = new DeletarPage();
+        ConsultarPage frame = new ConsultarPage();
         frame.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_deletarActionPerformed
+    }//GEN-LAST:event_consultarActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
         // TODO add your handling code here:
@@ -189,10 +149,8 @@ public class QuestoesPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel QuestoesFundo;
-    private javax.swing.JButton alterar;
     private javax.swing.JButton consultar;
     private javax.swing.JButton criar;
-    private javax.swing.JButton deletar;
     private javax.swing.JButton home;
     private javax.swing.JButton logOut;
     // End of variables declaration//GEN-END:variables

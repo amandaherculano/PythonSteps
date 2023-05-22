@@ -113,12 +113,12 @@ public class CriarPage extends javax.swing.JFrame {
         textoCategoria.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         textoCategoria.setForeground(new java.awt.Color(255, 255, 255));
         textoCategoria.setText("Categoria:");
-        getContentPane().add(textoCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 60, -1, -1));
+        getContentPane().add(textoCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 60, -1, -1));
 
         textoPeso.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         textoPeso.setForeground(new java.awt.Color(255, 255, 255));
-        textoPeso.setText("Dificuldade:");
-        getContentPane().add(textoPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 290, -1, -1));
+        textoPeso.setText("Nível de dificuldade:");
+        getContentPane().add(textoPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 290, -1, -1));
 
         logOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut.icon.jpg"))); // NOI18N
         logOut.setBorder(null);

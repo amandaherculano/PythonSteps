@@ -138,7 +138,7 @@ public class HomeAdminPage extends javax.swing.JFrame {
 
     private void resultadoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultadoBotaoActionPerformed
         // TODO add your handling code here:
-        ResultadosPage frame = new ResultadosPage();
+        ResultadosAdminPage frame = new ResultadosAdminPage();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_resultadoBotaoActionPerformed

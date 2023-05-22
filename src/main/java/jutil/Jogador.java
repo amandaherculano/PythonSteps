@@ -25,8 +25,8 @@ public class Jogador {
         this.vezes += 1 ;
     }
    
-    public void AddSelecionada(int i){
-        this.selecionada += 1;
+    public void SalvarSelecionada(int i){
+        this.selecionada += 0;
     }
     
     public int getSelecionada(){
@@ -76,5 +76,5 @@ public class Jogador {
     public int getPontuacao(){
         return pontuacao;
     }
-    
+   
 }

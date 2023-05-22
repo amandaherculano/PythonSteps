@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import jutil.conector;
-
+import jutil.Jogador;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -23,9 +23,10 @@ public class ConsultarPage extends javax.swing.JFrame {
     /**
      * Creates new form ConsultarPage
      */
+    
     public ConsultarPage() {
         initComponents();
-       
+        
         try (Connection con = conector.getConnection();) {
             
             Statement stmt = con.createStatement();
@@ -46,7 +47,8 @@ public class ConsultarPage extends javax.swing.JFrame {
             
         } catch (Exception e) {
             System.err.println(e); }}
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,6 +60,7 @@ public class ConsultarPage extends javax.swing.JFrame {
 
         home = new javax.swing.JButton();
         logOut = new javax.swing.JButton();
+        titulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         questoes = new javax.swing.JTable();
         ConsultarFundo = new javax.swing.JLabel();
@@ -82,6 +85,9 @@ public class ConsultarPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(logOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 620, -1, -1));
+
+        titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultarTitulo.jpg"))); // NOI18N
+        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
 
         questoes.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         questoes.setModel(new javax.swing.table.DefaultTableModel(
@@ -140,8 +146,8 @@ public class ConsultarPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         int SelectedRowIndex = questoes.getSelectedRow()+ 1;
-        System.out.print(SelectedRowIndex + 1);
-        //jogador.AddSelecionada(SelectedRowIndex );
+        System.out.print(SelectedRowIndex);
+        //jogador.SalvarSelecionada(SelectedRowIndex );
         //System.out.println(jogador.getSelecionada());
         QuestaoSelecionada frame = new QuestaoSelecionada();
         frame.setVisible(true);
@@ -188,5 +194,6 @@ public class ConsultarPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logOut;
     private javax.swing.JTable questoes;
+    private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }

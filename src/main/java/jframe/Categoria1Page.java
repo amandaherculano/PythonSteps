@@ -234,6 +234,9 @@ public class Categoria1Page extends javax.swing.JFrame {
             FeedbackPage feedbackPage = new FeedbackPage();
             feedbackPage.setJogador(jogador);
             feedbackPage.setVisible(true);
+            
+            
+            
             jogo.dispose();
             this.dispose();
         }
