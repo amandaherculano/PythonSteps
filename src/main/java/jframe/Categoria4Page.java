@@ -153,8 +153,9 @@ public class Categoria4Page extends javax.swing.JFrame {
         enunciado.setEditable(false);
         enunciado.setBackground(new java.awt.Color(239, 223, 153));
         enunciado.setColumns(20);
-        enunciado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        enunciado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         enunciado.setRows(5);
+        enunciado.setText("P\nP\nP\nP\nP\nP\nP\n");
         enunciado.setAutoscrolls(false);
         enunciado.setBorder(null);
         getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 1190, 140));

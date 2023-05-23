@@ -372,46 +372,47 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
                     categoria = 1;
                 }
                 
-                else if (categoria2.isSelected()){
+            else if (categoria2.isSelected()){
                     categoria = 2;
                 }
                 
-                else if (categoria3.isSelected()){
+            else if (categoria3.isSelected()){
                     categoria = 3;
                 }
-                else if (categoria4.isSelected()){
+            else if (categoria4.isSelected()){
                     categoria = 4;
                 }
                 
                 //alternativa correta
-                if (corretaA.isSelected()){
+            if (corretaA.isSelected()){
                     correta = 1;
                 }
                 
-                else if (corretaB.isSelected()){
+            else if (corretaB.isSelected()){
                     correta = 2;
                 }
                 
-                else if (corretaC.isSelected()){
+            else if (corretaC.isSelected()){
                     correta = 3;
                 }
-                else if (corretaD.isSelected()){
+            else if (corretaD.isSelected()){
                     correta = 4;
                 }
                 
                 //peso da questao
-                if (facil.isSelected()){
+            if (facil.isSelected()){
                     peso = 1;
                 }
-                else if (medio.isSelected()){
+            else if (medio.isSelected()){
                     peso = 2;
                 }
-                else if(dificil.isSelected()){
+            else if(dificil.isSelected()){
                     peso = 3;
                 }
             //trocar para get.SelecionadaID
-            PreparedStatement SQLAlterar = con.prepareStatement( "UPDATE `pythonsteps`.`questoes` SET enunciado = '" + enunciado.getText() + "', alternativaA = '" + A.getText() + "', alternativaB = '" + B.getText() + "', alternativaC = '" + C.getText() + "', alternativaD = '" + D.getText() + "', correta = " + correta + ", categoria = " + categoria + ", feedback = '" + feedback.getText() + "', peso = " + peso + " WHERE id = " + 1 );
+            PreparedStatement SQLAlterar = con.prepareStatement( "UPDATE `pythonsteps`.`questoes` SET enunciado = '" + enunciado.getText() + "', alternativaA = '" + A.getText() + "', alternativaB = '" + B.getText() + "', alternativaC = '" + C.getText() + "', alternativaD = '" + D.getText() + "', correta = " + correta + ", categoria = " + categoria + ", feedback = '" + feedback.getText() + "', peso = " + peso + " WHERE id = " + 5 );
             SQLAlterar.execute();
+            JOptionPane.showMessageDialog(null, "questão alterada com sucesso!");
             
             SQLAlterar.close();
             

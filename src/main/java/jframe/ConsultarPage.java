@@ -64,6 +64,7 @@ public class ConsultarPage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         questoes = new javax.swing.JTable();
         voltar = new javax.swing.JButton();
+        refresh = new javax.swing.JButton();
         ConsultarFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,6 +133,15 @@ public class ConsultarPage extends javax.swing.JFrame {
         });
         getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 610, -1, -1));
 
+        refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/refresh.png"))); // NOI18N
+        refresh.setBorder(null);
+        refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshActionPerformed(evt);
+            }
+        });
+        getContentPane().add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+
         ConsultarFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LoginPage.png"))); // NOI18N
         getContentPane().add(ConsultarFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -169,6 +179,35 @@ public class ConsultarPage extends javax.swing.JFrame {
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_voltarActionPerformed
+
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
+        // TODO add your handling code here:
+        
+        while (questoes.getModel().getRowCount() > 0) {  
+               ((DefaultTableModel) questoes.getModel()).setRowCount(0);  
+           }
+        
+        try (Connection con = conector.getConnection();) {
+            
+            Statement stmt = con.createStatement();
+            String SQLQuestion = "SELECT * FROM `pythonsteps`.`questoes` ORDER BY categoria"; //todas as colunas questoes
+            ResultSet rs = stmt.executeQuery(SQLQuestion);
+            DefaultTableModel model = (DefaultTableModel)questoes.getModel();
+            questoes.getColumnModel().getColumn(0).setPreferredWidth(200);
+            questoes.getColumnModel().getColumn(2).setMaxWidth(100); 
+            questoes.getColumnModel().getColumn(1).setMaxWidth(100);
+            
+            while (rs.next()){
+                String enunciado = String.valueOf(rs.getNString("enunciado"));
+                String categoria = String.valueOf(rs.getInt("categoria"));
+                String peso = String.valueOf(rs.getInt("peso"));
+                
+                model.addRow(new String[]{enunciado, peso, categoria});
+            }       
+            
+        } catch (Exception e) {
+            System.err.println(e); }
+    }//GEN-LAST:event_refreshActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +250,7 @@ public class ConsultarPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logOut;
     private javax.swing.JTable questoes;
+    private javax.swing.JButton refresh;
     private javax.swing.JLabel titulo;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
