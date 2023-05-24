@@ -19,19 +19,20 @@ public class Jogador {
     ArrayList perguntas4 = new ArrayList <>();
     int pontuacao = 0;
     int selecionada =0;
+    int id =0;
     String nome;
     String ra;
     int idUsuario;
     
-    public void SalvarNome(String i){
-        this.nome = nome;
+    public void SalvarNome(String nome){
+        this.nome =  nome;
     }
     
     public String getNome(){
         return nome;
     }
-    
-    public void SalvarRA(String i){
+        
+    public void SalvarRA(String ra){
         this.ra = ra;
     }
     
@@ -39,7 +40,7 @@ public class Jogador {
         return ra;
     }
     
-    public void SalvarID( int i){
+    public void SalvarID( int idUsuario){
         this.idUsuario = idUsuario;
     }
     
@@ -51,12 +52,20 @@ public class Jogador {
         this.vezes += 1 ;
     }
    
-    public void SalvarSelecionada(int i){
-        this.selecionada += 0;
+    public void SalvarSelecionada(int selecionada){
+        this.selecionada = selecionada;
     }
     
     public int getSelecionada(){
         return selecionada;
+    }
+    
+    public void SalvarIdSelecionada(int id){
+        this.id = id;
+    }
+    
+    public int getIdSelecionada(){
+        return id;
     }
     
     public int getVezes(){

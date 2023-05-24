@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ConsultarPage extends javax.swing.JFrame {
    
+    Jogador jogador = new Jogador();
     /**
      * Creates new form ConsultarPage
      */
@@ -166,9 +167,8 @@ public class ConsultarPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         int SelectedRowIndex = questoes.getSelectedRow()+ 1;
-        System.out.print(SelectedRowIndex);
-        //jogador.SalvarSelecionada(SelectedRowIndex );
-        //System.out.println(jogador.getSelecionada());
+        jogador.SalvarSelecionada(SelectedRowIndex );
+        System.out.println(jogador.getSelecionada());
         QuestaoSelecionada frame = new QuestaoSelecionada();
         frame.setVisible(true);
     }//GEN-LAST:event_questoesMouseClicked

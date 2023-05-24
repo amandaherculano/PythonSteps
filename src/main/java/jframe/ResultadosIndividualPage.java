@@ -18,7 +18,8 @@ import javax.swing.table.DefaultTableModel;
  * @author alexa
  */
 public class ResultadosIndividualPage extends javax.swing.JFrame {
-
+    
+    Jogador jogador = new Jogador();
     /**
      * Creates new form ResultadosIndividualPage
      */
@@ -30,7 +31,7 @@ public class ResultadosIndividualPage extends javax.swing.JFrame {
             
             Statement stmt = con.createStatement();
             //trocar para jogador.getID()
-            String SQLQuestion = "SELECT R.nome, R.ra, R.nota FROM `pythonsteps`.`resultados` R , `pythonsteps`.`usuarios` U WHERE U.idUsuario = 2 ORDER BY idTentativa";
+            String SQLQuestion = "SELECT R.nome, R.ra, R.nota FROM `pythonsteps`.`resultados` R , `pythonsteps`.`usuarios` U WHERE U.idUsuario = " + jogador.getID() + " ORDER BY idTentativa";
             ResultSet rs = stmt.executeQuery(SQLQuestion);
             DefaultTableModel model = (DefaultTableModel)resultado.getModel();
             resultado.getColumnModel().getColumn(0).setPreferredWidth(200);

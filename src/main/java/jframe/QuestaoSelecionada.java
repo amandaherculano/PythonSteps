@@ -19,7 +19,7 @@ import jutil.Jogador;
  */
 public class QuestaoSelecionada extends javax.swing.JFrame {
     
-    
+    Jogador jogador = new Jogador();
     /**
      * Creates new form QuestaoSelecionada
      */
@@ -28,12 +28,11 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
         initComponents();
         
         
-        
         try (Connection con = conector.getConnection();) {
             //mudar para guardar o id da questão de acordo com a RowSelected e exibir baseado no id
             //jogador.getSelecionadaID()
             Statement stmt = con.createStatement();
-            String SQLExibir = "WITH `OrdemLinhas` AS (SELECT `id`, `enunciado`, `alternativaA`, `alternativaB`, `alternativaC`, `alternativaD`, `correta`, `categoria`, `feedback`, `peso`,  ROW_NUMBER() OVER (ORDER BY `categoria`) AS `RowNumbers` FROM `pythonsteps`.`questoes` ) SELECT * FROM `OrdemLinhas` WHERE `RowNumbers` = " + 1     ; //retorna linha selecionada
+            String SQLExibir = "WITH `OrdemLinhas` AS (SELECT `id`, `enunciado`, `alternativaA`, `alternativaB`, `alternativaC`, `alternativaD`, `correta`, `categoria`, `feedback`, `peso`,  ROW_NUMBER() OVER (ORDER BY `categoria`) AS `RowNumbers` FROM `pythonsteps`.`questoes` ) SELECT * FROM `OrdemLinhas` WHERE `RowNumbers` = " + jogador.getSelecionada() ; //retorna linha selecionada
             ResultSet linhaSelecionada = stmt.executeQuery(SQLExibir);
             
             while (linhaSelecionada.next()){
@@ -47,7 +46,7 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
                 int selecionadaPeso = (linhaSelecionada.getInt("peso"));
                 int selecionadaCorreta = (linhaSelecionada.getInt("correta"));
                 int id = (linhaSelecionada.getInt("id"));
-                
+                jogador.SalvarIdSelecionada(id);
                 
                 switch (selecionadaCategoria){
                  
@@ -410,7 +409,7 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
                     peso = 3;
                 }
             //trocar para get.SelecionadaID
-            PreparedStatement SQLAlterar = con.prepareStatement( "UPDATE `pythonsteps`.`questoes` SET enunciado = '" + enunciado.getText() + "', alternativaA = '" + A.getText() + "', alternativaB = '" + B.getText() + "', alternativaC = '" + C.getText() + "', alternativaD = '" + D.getText() + "', correta = " + correta + ", categoria = " + categoria + ", feedback = '" + feedback.getText() + "', peso = " + peso + " WHERE id = " + 5 );
+            PreparedStatement SQLAlterar = con.prepareStatement( "UPDATE `pythonsteps`.`questoes` SET enunciado = '" + enunciado.getText() + "', alternativaA = '" + A.getText() + "', alternativaB = '" + B.getText() + "', alternativaC = '" + C.getText() + "', alternativaD = '" + D.getText() + "', correta = " + correta + ", categoria = " + categoria + ", feedback = '" + feedback.getText() + "', peso = " + peso + " WHERE id = " + jogador.getIdSelecionada() );
             SQLAlterar.execute();
             JOptionPane.showMessageDialog(null, "questão alterada com sucesso!");
             
@@ -441,7 +440,7 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
         // TODO add your handling code here:
         try (Connection con = conector.getConnection();){
             //jogador.getSelecionadaID()
-            PreparedStatement SQLDeletar = con.prepareStatement( "DELETE FROM `pythonsteps`.`questoes` WHERE id = " + 1);
+            PreparedStatement SQLDeletar = con.prepareStatement( "DELETE FROM `pythonsteps`.`questoes` WHERE id = " + jogador.getIdSelecionada());
             SQLDeletar.execute();
             
         } catch (Exception e) {
