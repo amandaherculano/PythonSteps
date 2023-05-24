@@ -16,12 +16,22 @@ import jutil.conector;
  */
 public class ResultadosAdminPage extends javax.swing.JFrame {
 
+    jutil.Jogador jogador;
     /**
      * Creates new form ResultadosPage
      */
+    
+    
     public ResultadosAdminPage() {
         initComponents();
-        
+    }
+    public void setJogador(jutil.Jogador jogador){
+        this.jogador = jogador;
+        ExibirResultados();
+         
+    }    
+    
+    public void ExibirResultados(){
         try (Connection con = conector.getConnection();) {
             
             Statement stmt = con.createStatement();
@@ -57,6 +67,7 @@ public class ResultadosAdminPage extends javax.swing.JFrame {
         titulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         resultado = new javax.swing.JTable();
+        homeBotao = new javax.swing.JButton();
         FundoResultados = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,12 +90,29 @@ public class ResultadosAdminPage extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 50, 1250, 520));
 
+        homeBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeIcon.jpg"))); // NOI18N
+        homeBotao.setBorder(null);
+        homeBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBotaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(homeBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 600, 150, 60));
+
         FundoResultados.setBackground(new java.awt.Color(217, 217, 217));
         FundoResultados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LoginPage.png"))); // NOI18N
         getContentPane().add(FundoResultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 1370, 690));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void homeBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBotaoActionPerformed
+
+        HomeAdminPage frame = new HomeAdminPage();
+        frame.setVisible(true);
+        frame.setJogador(jogador);
+        this.dispose();
+    }//GEN-LAST:event_homeBotaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,6 +152,7 @@ public class ResultadosAdminPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FundoResultados;
+    private javax.swing.JButton homeBotao;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable resultado;
     private javax.swing.JLabel titulo;

@@ -216,7 +216,9 @@ public class Categoria1Page extends javax.swing.JFrame {
 
     private void seguinteBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seguinteBotaoActionPerformed
         // TODO add your handling code here: 
+        
         if (selecionada == 0){
+            
             JOptionPane.showMessageDialog(null,"Selecione uma alternativa", "SELECIONE", JOptionPane.WARNING_MESSAGE);
         }
         else{
@@ -234,9 +236,6 @@ public class Categoria1Page extends javax.swing.JFrame {
             FeedbackPage feedbackPage = new FeedbackPage();
             feedbackPage.setJogador(jogador);
             feedbackPage.setVisible(true);
-            
-            
-            
             jogo.dispose();
             this.dispose();
         }

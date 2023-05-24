@@ -10,11 +10,16 @@ package jframe;
  */
 public class HomeAdminPage extends javax.swing.JFrame {
 
+    jutil.Jogador jogador;
     /**
      * Creates new form HomeAdmin
      */
     public HomeAdminPage() {
         initComponents();
+    }
+    public void setJogador(jutil.Jogador jogador){
+        this.jogador = jogador;
+        
     }
 
     /**
@@ -131,23 +136,27 @@ public class HomeAdminPage extends javax.swing.JFrame {
 
     private void jogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jogarActionPerformed
         // TODO add your handling code here:
-        ComecarAdminPage frame = new ComecarAdminPage();
+        ComecarPage frame = new ComecarPage();
         frame.setVisible(true);
-        this.setVisible(false);
+        frame.setJogador(jogador);
+        this.dispose();
     }//GEN-LAST:event_jogarActionPerformed
 
     private void resultadoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultadoBotaoActionPerformed
         // TODO add your handling code here:
         ResultadosAdminPage frame = new ResultadosAdminPage();
+        frame.setJogador(jogador); 
         frame.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_resultadoBotaoActionPerformed
 
     private void regrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regrasActionPerformed
         // TODO add your handling code here:
-        RegrasPageAdmin frame = new RegrasPageAdmin();
+        RegrasPage frame = new RegrasPage();
         frame.setVisible(true);
-        this.setVisible(false);
+        frame.setJogador(jogador);
+        this.dispose();
+ 
     }//GEN-LAST:event_regrasActionPerformed
 
     /**

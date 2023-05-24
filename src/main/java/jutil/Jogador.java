@@ -17,9 +17,10 @@ public class Jogador {
     ArrayList perguntas2 = new ArrayList <>();
     ArrayList perguntas3 = new ArrayList <>();
     ArrayList perguntas4 = new ArrayList <>();
-    int pontuacao = 0;
-    int selecionada =0;
-    int id =0;
+    int pontuacao;
+    int selecionada;
+    int id;
+    int admin;
     String nome;
     String ra;
     int idUsuario;
@@ -48,15 +49,23 @@ public class Jogador {
         return idUsuario;
     }
     
+    public void SalvarIsAdmin( int admin){
+        this.admin = admin;
+    }
+    
+    public int getIsAdmin(){
+        return admin;
+    }
+    
     public void Addvezes(int i){
         this.vezes += 1 ;
     }
    
-    public void SalvarSelecionada(int selecionada){
-        this.selecionada = selecionada;
+    public  void SalvarLinha(int selecionada){
+       this.selecionada = selecionada;
     }
     
-    public int getSelecionada(){
+    public int getLinha(){
         return selecionada;
     }
     

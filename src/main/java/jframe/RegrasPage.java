@@ -3,20 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package jframe;
-
+import jutil.Jogador;
 /**
  *
  * @author alexa
  */
 public class RegrasPage extends javax.swing.JFrame {
 
+    jutil.Jogador jogador;
     /**
      * Creates new form regrasPage
      */
     public RegrasPage() {
         initComponents();
     }
-
+    
+    public void setJogador(jutil.Jogador jogador){
+        this.jogador = jogador;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,7 +36,6 @@ public class RegrasPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1366, 682));
         setMinimumSize(new java.awt.Dimension(1366, 682));
-        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1000, 562));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -54,9 +57,20 @@ public class RegrasPage extends javax.swing.JFrame {
     private void setaVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setaVoltarActionPerformed
         // TODO add your handling code here:
         
-        HomePage frame = new HomePage();
-        frame.setVisible(true);
-        this.setVisible(false);
+        System.out.println("apertou");
+        if (jogador.getIsAdmin() == 1){
+           HomeAdminPage frame = new HomeAdminPage();
+           frame.setVisible(true);
+           frame.setJogador(jogador);
+           this.dispose();
+        }
+        else if (jogador.getIsAdmin() == 0){
+            HomePage frame = new HomePage();
+            frame.setVisible(true);
+            frame.setJogador(jogador);
+            this.dispose();
+        }
+        
     }//GEN-LAST:event_setaVoltarActionPerformed
 
     /**

@@ -14,7 +14,7 @@ import jutil.conector;
  */
 public class JogoPage extends javax.swing.JFrame {
     
-    
+    jutil.Jogador jogador;
     /**
      * Creates new form JogoPage
      */
@@ -23,7 +23,9 @@ public class JogoPage extends javax.swing.JFrame {
         
     }
     
-    Jogador jogador = new Jogador();
+    public void setJogador(jutil.Jogador jogador){
+        this.jogador = jogador;
+    }
     
     
     /**

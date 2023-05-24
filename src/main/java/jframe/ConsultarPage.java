@@ -10,8 +10,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import jutil.conector;
-import jutil.Jogador;
 import javax.swing.table.DefaultTableModel;
+import jutil.Jogador;
+
 
 
 /**
@@ -21,13 +22,15 @@ import javax.swing.table.DefaultTableModel;
 public class ConsultarPage extends javax.swing.JFrame {
    
     Jogador jogador = new Jogador();
+    
     /**
      * Creates new form ConsultarPage
+     * 
      */
     
     public ConsultarPage() {
         initComponents();
-        
+        this.jogador = jogador;    
         try (Connection con = conector.getConnection();) {
             
             Statement stmt = con.createStatement();
@@ -78,7 +81,7 @@ public class ConsultarPage extends javax.swing.JFrame {
                 homeActionPerformed(evt);
             }
         });
-        getContentPane().add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 610, -1, -1));
+        getContentPane().add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 610, -1, -1));
 
         logOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut.icon.jpg"))); // NOI18N
         logOut.setBorder(null);
@@ -87,7 +90,7 @@ public class ConsultarPage extends javax.swing.JFrame {
                 logOutActionPerformed(evt);
             }
         });
-        getContentPane().add(logOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 620, -1, -1));
+        getContentPane().add(logOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 620, -1, -1));
 
         titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConsultarTitulo.jpg"))); // NOI18N
         getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
@@ -125,14 +128,14 @@ public class ConsultarPage extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 1250, 520));
 
-        voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeIcon.jpg"))); // NOI18N
+        voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/setaEscuro.png"))); // NOI18N
         voltar.setBorder(null);
         voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 voltarActionPerformed(evt);
             }
         });
-        getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 610, -1, -1));
+        getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, -1, -1));
 
         refresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/refresh.png"))); // NOI18N
         refresh.setBorder(null);
@@ -167,9 +170,10 @@ public class ConsultarPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         int SelectedRowIndex = questoes.getSelectedRow()+ 1;
-        jogador.SalvarSelecionada(SelectedRowIndex );
-        System.out.println(jogador.getSelecionada());
+        jogador.SalvarLinha(SelectedRowIndex );
+        System.out.println(jogador.getLinha());
         QuestaoSelecionada frame = new QuestaoSelecionada();
+        frame.setJogador(jogador);
         frame.setVisible(true);
     }//GEN-LAST:event_questoesMouseClicked
 

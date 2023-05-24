@@ -4,17 +4,25 @@
  */
 package jframe;
 
+import jutil.Jogador;
+
 /**
  *
  * @author alexa
  */
 public class HomePage extends javax.swing.JFrame {
-
+    
+    jutil.Jogador jogador;
     /**
      * Creates new form InicioPage
      */
     public HomePage() {
         initComponents();
+    }
+    
+    public void setJogador(jutil.Jogador jogador){
+        this.jogador = jogador;
+        
     }
 
     /**
@@ -32,6 +40,7 @@ public class HomePage extends javax.swing.JFrame {
         regras = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
         jogar = new javax.swing.JButton();
+        resultadoBotao = new javax.swing.JButton();
         Fundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,7 +74,7 @@ public class HomePage extends javax.swing.JFrame {
                 regrasActionPerformed(evt);
             }
         });
-        getContentPane().add(regras, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 400, -1, 70));
+        getContentPane().add(regras, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, -1, 70));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo3Python.jpg"))); // NOI18N
         getContentPane().add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
@@ -77,7 +86,16 @@ public class HomePage extends javax.swing.JFrame {
                 jogarActionPerformed(evt);
             }
         });
-        getContentPane().add(jogar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, -1, 70));
+        getContentPane().add(jogar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, -1, 70));
+
+        resultadoBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ResultadosBotao.jpg"))); // NOI18N
+        resultadoBotao.setBorder(null);
+        resultadoBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultadoBotaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(resultadoBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 380, -1, -1));
 
         Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/InicioPage.png"))); // NOI18N
         getContentPane().add(Fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 680));
@@ -99,17 +117,28 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jogarActionPerformed
         // TODO add your handling code here:
+        
         ComecarPage frame = new ComecarPage();
         frame.setVisible(true);
-        this.setVisible(false);
+        frame.setJogador(jogador);
+        this.dispose();
     }//GEN-LAST:event_jogarActionPerformed
 
     private void regrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regrasActionPerformed
         // TODO add your handling code here:
         RegrasPage frame = new RegrasPage();
         frame.setVisible(true);
-        this.setVisible(false);
+        frame.setJogador(jogador);
+        this.dispose();
     }//GEN-LAST:event_regrasActionPerformed
+
+    private void resultadoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultadoBotaoActionPerformed
+        // TODO add your handling code here:
+        ResultadosIndividualPage frame = new ResultadosIndividualPage();
+        frame.setJogador(jogador);   
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_resultadoBotaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,6 +183,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton logOutBotao;
     private javax.swing.JLabel logo;
     private javax.swing.JButton regras;
+    private javax.swing.JButton resultadoBotao;
     private javax.swing.JLabel texto;
     // End of variables declaration//GEN-END:variables
 }

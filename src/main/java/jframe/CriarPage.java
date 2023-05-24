@@ -71,7 +71,7 @@ public class CriarPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeIcon.jpg"))); // NOI18N
+        voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/setaEscuro.png"))); // NOI18N
         voltar.setBorder(null);
         voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +127,7 @@ public class CriarPage extends javax.swing.JFrame {
                 logOutActionPerformed(evt);
             }
         });
-        getContentPane().add(logOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 590, -1, -1));
+        getContentPane().add(logOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 600, -1, -1));
 
         enunciado.setBackground(new java.awt.Color(232, 232, 235));
         enunciado.setColumns(20);
@@ -375,14 +375,14 @@ public class CriarPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         QuestoesPage frame = new QuestoesPage();
         frame.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_voltarActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
         // TODO add your handling code here:
         LoginPage1 frame = new LoginPage1();
         frame.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_logOutActionPerformed
 
     private void peso3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peso3ActionPerformed

@@ -29,7 +29,6 @@ public class FeedbackPage extends javax.swing.JFrame {
      * Creates new form FeedbackPage
      */
     
-   
     public FeedbackPage() {
         initComponents();
     }
@@ -64,6 +63,7 @@ public class FeedbackPage extends javax.swing.JFrame {
     }
     
     public void ExibirPerguntas(int id){
+        
         
         try (Connection con = conector.getConnection();) {
             
@@ -245,9 +245,24 @@ public class FeedbackPage extends javax.swing.JFrame {
         
         if ( passo < listaPerguntas.size()){
             if (passo == listaPerguntas.size() - 1){
-                seguinte.setText("Finalizar");
+                seguinte.setText("Finalizar");   
             }
+            
             ExibirPerguntas((int)listaPerguntas.get(passo));
+        }
+        else {
+            if (jogador.getIsAdmin() == 1){
+               HomeAdminPage frame = new HomeAdminPage();
+               frame.setVisible(true);
+               frame.setJogador(jogador);
+               this.dispose();
+            }
+            else {
+               HomePage frame = new HomePage();
+               frame.setVisible(true);
+               frame.setJogador(jogador);
+               this.dispose();
+            }
         }
     }//GEN-LAST:event_seguinteActionPerformed
 

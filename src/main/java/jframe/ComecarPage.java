@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package jframe;
+import jutil.Jogador;
 
 /**
  *
@@ -10,13 +11,19 @@ package jframe;
  */
 public class ComecarPage extends javax.swing.JFrame {
 
+    jutil.Jogador jogador;
+    
     /**
      * Creates new form ComecarPage
      */
     public ComecarPage() {
         initComponents();
+        
     }
-
+    public void setJogador(jutil.Jogador jogador){
+        this.jogador = jogador;
+    }  
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,7 +48,7 @@ public class ComecarPage extends javax.swing.JFrame {
                 homeBotaoActionPerformed(evt);
             }
         });
-        getContentPane().add(homeBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, 150, 60));
+        getContentPane().add(homeBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 600, 150, 60));
 
         logOutBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut.icon.jpg"))); // NOI18N
         logOutBotao.setBorder(null);
@@ -71,24 +78,36 @@ public class ComecarPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBotaoActionPerformed
-
-        HomePage frame = new HomePage();
-        frame.setVisible(true);
-        this.setVisible(false);
+        
+        System.out.println(jogador.getID());
+        if (jogador.getIsAdmin() == 1){
+           HomeAdminPage frame = new HomeAdminPage();
+           frame.setVisible(true);
+           frame.setJogador(jogador);
+           this.dispose();
+        }
+        else if (jogador.getIsAdmin() == 0){
+           HomePage frame = new HomePage();
+           frame.setVisible(true);
+           frame.setJogador(jogador);
+           this.dispose(); 
+        }
+        
     }//GEN-LAST:event_homeBotaoActionPerformed
 
     private void comecarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comecarBotaoActionPerformed
         
         JogoPage frame = new JogoPage();
         frame.setVisible(true);
-        this.setVisible(false);
+        frame.setJogador(jogador);
+        this.dispose();
     }//GEN-LAST:event_comecarBotaoActionPerformed
 
     private void logOutBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBotaoActionPerformed
         
         LoginPage1 frame = new LoginPage1();
         frame.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_logOutBotaoActionPerformed
 
     /**

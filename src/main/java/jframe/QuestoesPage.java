@@ -88,28 +88,28 @@ public class QuestoesPage extends javax.swing.JFrame {
         // TODO add your handling code here:]
         HomeAdminPage frame = new HomeAdminPage();
         frame.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_homeActionPerformed
 
     private void criarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarActionPerformed
         // TODO add your handling code here:
         CriarPage frame = new CriarPage();
         frame.setVisible(true);
-        this.setVisible(false);        
+        this.dispose();        
     }//GEN-LAST:event_criarActionPerformed
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
         // TODO add your handling code here:
         ConsultarPage frame = new ConsultarPage();
         frame.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_consultarActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
         // TODO add your handling code here:
         LoginPage1 frame = new LoginPage1();
         frame.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_logOutActionPerformed
 
     /**

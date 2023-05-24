@@ -172,19 +172,34 @@ public class LoginPage1 extends javax.swing.JFrame {
                         jogador.SalvarNome(rs.getNString("nome"));;
                         jogador.SalvarRA(rs.getNString("ra"));
                         jogador.SalvarID(rs.getInt("idUsuario"));
+                        jogador.SalvarIsAdmin(rs.getInt("admin"));
+                        System.out.println(jogador.getID());
+                        System.out.println(jogador.getNome());
+                        System.out.println(jogador.getRA());
+                        System.out.println(jogador.getIsAdmin());
                         
                         HomePage frame = new HomePage();
                         frame.setVisible(true);
-                        this.setVisible(false);
+                        frame.setJogador(jogador);
+                        this.dispose();
 
                         con.close();
                         stmt.close();
                         rs.close();
                     } else if (rs.getNString("admin").equals("1")) {
                         JOptionPane.showMessageDialog(null, "Conectando Admin!");
+                        jogador.SalvarNome(rs.getNString("nome"));;
+                        jogador.SalvarRA(rs.getNString("ra"));
+                        jogador.SalvarID(rs.getInt("idUsuario"));
+                        jogador.SalvarIsAdmin(rs.getInt("admin"));
+                        System.out.println(jogador.getID());
+                        System.out.println(jogador.getNome());
+                        System.out.println(jogador.getRA());
+                        System.out.println(jogador.getIsAdmin());
+                        
                         HomeAdminPage frame = new HomeAdminPage();
                         frame.setVisible(true);
-                        this.setVisible(false);
+                        this.dispose();
 
                         con.close();
                         stmt.close();

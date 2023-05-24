@@ -19,14 +19,21 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ResultadosIndividualPage extends javax.swing.JFrame {
     
-    Jogador jogador = new Jogador();
+    jutil.Jogador jogador;
     /**
      * Creates new form ResultadosIndividualPage
      */
+    
     public ResultadosIndividualPage() {
         initComponents();
         
-        
+    }
+    public void setJogador(jutil.Jogador jogador){
+        this.jogador = jogador;
+        ExibirResultados();
+         
+    }
+    public void ExibirResultados(){
         try (Connection con = conector.getConnection();) {
             
             Statement stmt = con.createStatement();
@@ -60,6 +67,8 @@ public class ResultadosIndividualPage extends javax.swing.JFrame {
     private void initComponents() {
 
         titulo = new javax.swing.JLabel();
+        logOutBotao = new javax.swing.JButton();
+        homeBotao = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         resultado = new javax.swing.JTable();
         FundoResultados = new javax.swing.JLabel();
@@ -71,6 +80,24 @@ public class ResultadosIndividualPage extends javax.swing.JFrame {
         titulo.setForeground(new java.awt.Color(0, 51, 153));
         titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ResultadosTitulo.jpg"))); // NOI18N
         getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, -1, -1));
+
+        logOutBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut.icon.jpg"))); // NOI18N
+        logOutBotao.setBorder(null);
+        logOutBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOutBotaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(logOutBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 600, -1, -1));
+
+        homeBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeIcon.jpg"))); // NOI18N
+        homeBotao.setBorder(null);
+        homeBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBotaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(homeBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 600, 150, 60));
 
         resultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,6 +117,21 @@ public class ResultadosIndividualPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void homeBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBotaoActionPerformed
+
+        HomePage frame = new HomePage();
+        frame.setVisible(true);
+        frame.setJogador(jogador);
+        this.dispose();
+    }//GEN-LAST:event_homeBotaoActionPerformed
+
+    private void logOutBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBotaoActionPerformed
+
+        LoginPage1 frame = new LoginPage1();
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logOutBotaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,7 +170,9 @@ public class ResultadosIndividualPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FundoResultados;
+    private javax.swing.JButton homeBotao;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton logOutBotao;
     private javax.swing.JTable resultado;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
