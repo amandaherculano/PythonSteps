@@ -4,7 +4,6 @@
  */
 package jframe;
 
-import jutil.Jogador;
 
 /**
  *

@@ -6,11 +6,9 @@ package jframe;
 
 import java.awt.Color;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -22,9 +20,6 @@ import jutil.conector;
  */
 public class Categoria1Page extends javax.swing.JFrame {
 
-    int pontos;
-    int pergunta = 1;
-    String resposta;
     public List<Integer> listID = new ArrayList<>();
     public List<Integer> listRemovidos = new ArrayList<>();
     int categoria = 1;
@@ -43,7 +38,7 @@ public class Categoria1Page extends javax.swing.JFrame {
         initComponents();
         this.jogo = jogo;
         this.jogador = jogador;
-        int qte =0;
+        int qte;
         
         try (Connection con = conector.getConnection();) {
             
@@ -165,7 +160,7 @@ public class Categoria1Page extends javax.swing.JFrame {
         enunciado.setEditable(false);
         enunciado.setBackground(new java.awt.Color(248, 193, 186));
         enunciado.setColumns(20);
-        enunciado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        enunciado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         enunciado.setRows(5);
         enunciado.setAutoscrolls(false);
         enunciado.setBorder(null);

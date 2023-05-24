@@ -6,7 +6,6 @@ package jframe;
 
 import java.awt.Color;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -21,11 +20,7 @@ import jutil.conector;
  */
 public class Categoria3Page extends javax.swing.JFrame {
 
-    int pontos;
-    int pergunta = 1;
-    String resposta;
     public List<Integer> listID = new ArrayList<>();
-    Random random = new Random();
     int categoria = 3;
     static JogoPage jogo;
     static jutil.Jogador jogador;
@@ -42,7 +37,7 @@ public class Categoria3Page extends javax.swing.JFrame {
         initComponents();
         this.jogo = jogo;
         this.jogador = jogador;
-        int qte = 0;
+        int qte;
         
         try (Connection con = conector.getConnection();) {
             

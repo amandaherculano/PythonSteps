@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package jframe;
-import jutil.Jogador;
 /**
  *
  * @author alexa
@@ -34,9 +33,9 @@ public class RegrasPage extends javax.swing.JFrame {
         regrasFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1366, 682));
         setMinimumSize(new java.awt.Dimension(1366, 682));
-        setPreferredSize(new java.awt.Dimension(1000, 562));
+        setPreferredSize(new java.awt.Dimension(1366, 682));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         setaVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/setaVoltar.jpg"))); // NOI18N

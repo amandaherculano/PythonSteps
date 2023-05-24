@@ -10,10 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import java.awt.Color;
 import jutil.conector;
-import jutil.Jogador;
 
 /**
  *
@@ -37,7 +35,7 @@ public class FeedbackPage extends javax.swing.JFrame {
         this.jogador = jogador;
         setPerguntas();
         ExibirPontuacao();
-         
+        InserirPontuacao();
     }
     //criar uma lista com todas os IDs das questões sorteadas
     public void setPerguntas(){
@@ -57,6 +55,16 @@ public class FeedbackPage extends javax.swing.JFrame {
         }
         ExibirPerguntas((int)listaPerguntas.get(passo));
     }
+    
+    public void InserirPontuacao(){
+        try (Connection con = conector.getConnection();) {
+            Statement stmt = con.createStatement();
+            PreparedStatement inserirResultado = con.prepareStatement("INSERT INTO `pythonsteps`.`resultados` (`ra`, `nome`, `nota`) VALUES ('" + jogador.getRA() + "', '" + jogador.getNome() + "', " + jogador.getPontuacao() + ")");
+            inserirResultado.execute();
+            
+        } catch (Exception e) {
+            System.err.println(e); }}
+    
     
     public void ExibirPontuacao(){
         pontuacao.setText(Integer.toString(jogador.getPontuacao()));
@@ -192,6 +200,7 @@ public class FeedbackPage extends javax.swing.JFrame {
         feedback.setColumns(20);
         feedback.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         feedback.setRows(5);
+        feedback.setToolTipText("");
         feedback.setBorder(null);
         feedback.setCaretColor(new java.awt.Color(255, 204, 0));
         getContentPane().add(feedback, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, 1190, 70));
@@ -245,25 +254,25 @@ public class FeedbackPage extends javax.swing.JFrame {
         
         if ( passo < listaPerguntas.size()){
             if (passo == listaPerguntas.size() - 1){
-                seguinte.setText("Finalizar");   
+                seguinte.setText("Finalizar"); 
+               if (jogador.getIsAdmin() == 1){
+                    HomeAdminPage frame = new HomeAdminPage();
+                    frame.setVisible(true);
+                    frame.setJogador(jogador);
+                    this.dispose();
+                    
+                }
+                else {
+                    HomePage frame = new HomePage();
+                    frame.setVisible(true);
+                    frame.setJogador(jogador);
+                    this.dispose();
+            }
             }
             
             ExibirPerguntas((int)listaPerguntas.get(passo));
         }
-        else {
-            if (jogador.getIsAdmin() == 1){
-               HomeAdminPage frame = new HomeAdminPage();
-               frame.setVisible(true);
-               frame.setJogador(jogador);
-               this.dispose();
-            }
-            else {
-               HomePage frame = new HomePage();
-               frame.setVisible(true);
-               frame.setJogador(jogador);
-               this.dispose();
-            }
-        }
+        
     }//GEN-LAST:event_seguinteActionPerformed
 
     /**

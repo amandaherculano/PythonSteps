@@ -7,11 +7,9 @@ package jframe;
 
 import java.awt.Color;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -23,11 +21,7 @@ import jutil.conector;
  */
 public class Categoria2Page extends javax.swing.JFrame {
     
-    int pontos;
-    int pergunta = 1;
-    String resposta;
     public List<Integer> listID = new ArrayList<>();
-    Random random = new Random();
     int categoria = 2;
     static JogoPage jogo;
     static jutil.Jogador jogador;
@@ -44,7 +38,7 @@ public class Categoria2Page extends javax.swing.JFrame {
         initComponents();
         this.jogo = jogo;
         this.jogador = jogador;
-        int qte = 0;
+        int qte;
         
         try (Connection con = conector.getConnection();) {
             
@@ -159,8 +153,9 @@ public class Categoria2Page extends javax.swing.JFrame {
         enunciado.setEditable(false);
         enunciado.setBackground(new java.awt.Color(204, 226, 176));
         enunciado.setColumns(20);
-        enunciado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        enunciado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         enunciado.setRows(5);
+        enunciado.setText("1\n2\n3\n4\n5\n6\n7\n");
         enunciado.setAutoscrolls(false);
         enunciado.setBorder(null);
         getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 1190, 140));

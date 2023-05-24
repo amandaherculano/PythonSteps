@@ -35,7 +35,7 @@ public class ResultadosAdminPage extends javax.swing.JFrame {
         try (Connection con = conector.getConnection();) {
             
             Statement stmt = con.createStatement();
-            String SQLQuestion = "SELECT nome, ra, nota FROM `pythonsteps`.`resultados` ORDER BY nome";
+            String SQLQuestion = "SELECT nome, ra, nota FROM `pythonsteps`.`resultados` ORDER BY nome, nota";
             ResultSet rs = stmt.executeQuery(SQLQuestion);
             DefaultTableModel model = (DefaultTableModel)resultado.getModel();
             resultado.getColumnModel().getColumn(0).setPreferredWidth(200);

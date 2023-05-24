@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import jutil.conector;
-import jutil.Jogador;
+
 
 
 /**
@@ -45,7 +45,8 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
             
             System.out.println(jogador.getLinha());
             Statement stmt = con.createStatement();
-            String SQLExibir = "WITH `OrdemLinhas` AS (SELECT `id`, `enunciado`, `alternativaA`, `alternativaB`, `alternativaC`, `alternativaD`, `correta`, `categoria`, `feedback`, `peso`,  ROW_NUMBER() OVER (ORDER BY `categoria`) AS `RowNumbers` FROM `pythonsteps`.`questoes` ) SELECT * FROM `OrdemLinhas` WHERE `RowNumbers` = " + jogador.getLinha() ; //retorna linha selecionada
+            String SQLExibir = "WITH `OrdemLinhas` AS (SELECT `id`, `enunciado`, `alternativaA`, `alternativaB`, `alternativaC`, `alternativaD`, `correta`, `categoria`, `feedback`, `peso`,  ROW_NUMBER() OVER (ORDER BY `categoria`, `peso`) AS `RowNumbers` FROM `pythonsteps`.`questoes` ) SELECT * FROM `OrdemLinhas` WHERE `RowNumbers` = " + jogador.getLinha() ; //retorna linha selecionada
+            System.out.println(jogador.getLinha());
             ResultSet linhaSelecionada = stmt.executeQuery(SQLExibir);
             
             while (linhaSelecionada.next()){
@@ -219,9 +220,9 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         enunciado.setColumns(20);
-        enunciado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         enunciado.setRows(5);
-        getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 850, 110));
+        enunciado.setText("\n");
+        getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 850, 120));
 
         A.setColumns(20);
         A.setRows(5);
@@ -379,59 +380,86 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
         int categoria = 0;
         int peso = 0;
         int correta = 0;
-        try (Connection con = conector.getConnection();){
-           
-            if (categoria1.isSelected()){
-                    categoria = 1;
+        
+        if (JOptionPane.showConfirmDialog(null,"Deseja alterar a questão?","ALTERAR QUESTÃO",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+            try (Connection con = conector.getConnection();){
+
+                //categoria selecionada, não tem como não ser selecioanda
+                if (categoria1.isSelected()){
+                        categoria = 1;
+                    }
+                
+                else if (categoria2.isSelected()){
+                        categoria = 2;
+                    }
+
+                else if (categoria3.isSelected()){
+                        categoria = 3;
+                    }
+                else if (categoria4.isSelected()){
+                        categoria = 4;
+                    }
+
+                    //alternativa correta não tem como não ser selecionado
+                if (corretaA.isSelected()){
+                        correta = 1;
+                    }
+
+                else if (corretaB.isSelected()){
+                        correta = 2;
+                    }
+
+                else if (corretaC.isSelected()){
+                        correta = 3;
+                    }
+                else if (corretaD.isSelected()){
+                        correta = 4;
+                    }
+
+                    //peso da questao, não tem como não ser selecioando
+                if (facil.isSelected()){
+                        peso = 1;
+                    }
+                else if (medio.isSelected()){
+                        peso = 2;
+                    }
+                else if(dificil.isSelected()){
+                        peso = 3;
+                    }
+                
+                    //ver se não só apagaou os campos, pois não podem ser vazios
+                String semEnunciado = enunciado.getText().trim();
+                String semA = A.getText().trim();
+                String semB = B.getText().trim();
+                String semC = C.getText().trim();
+                String semD = D.getText().trim();
+                String semFeedback = feedback.getText().trim();
+
+                if (semEnunciado.equals("")){
+                    JOptionPane.showMessageDialog(null,"Digite um enunciado.", "SEM ENUNCIADO", JOptionPane.WARNING_MESSAGE);
                 }
                 
-            else if (categoria2.isSelected()){
-                    categoria = 2;
+                else if (semFeedback.equals("")){
+                    JOptionPane.showMessageDialog(null,"Digite uma breve explicação.", "EXPLICAÇÃO INCOMPLETA", JOptionPane.WARNING_MESSAGE);
                 }
                 
-            else if (categoria3.isSelected()){
-                    categoria = 3;
-                }
-            else if (categoria4.isSelected()){
-                    categoria = 4;
-                }
+                else if (semA.equals("") || semB.equals("") || semC.equals("") || semD.equals("")){
+                    JOptionPane.showMessageDialog(null,"Complete todos os campos das alternativas.", "ALTERANTIVAS INCOMPLETAS", JOptionPane.WARNING_MESSAGE);
                 
-                //alternativa correta
-            if (corretaA.isSelected()){
-                    correta = 1;
                 }
-                
-            else if (corretaB.isSelected()){
-                    correta = 2;
-                }
-                
-            else if (corretaC.isSelected()){
-                    correta = 3;
-                }
-            else if (corretaD.isSelected()){
-                    correta = 4;
-                }
-                
-                //peso da questao
-            if (facil.isSelected()){
-                    peso = 1;
-                }
-            else if (medio.isSelected()){
-                    peso = 2;
-                }
-            else if(dificil.isSelected()){
-                    peso = 3;
-                }
-            //trocar para get.SelecionadaID
-            PreparedStatement SQLAlterar = con.prepareStatement( "UPDATE `pythonsteps`.`questoes` SET enunciado = '" + enunciado.getText() + "', alternativaA = '" + A.getText() + "', alternativaB = '" + B.getText() + "', alternativaC = '" + C.getText() + "', alternativaD = '" + D.getText() + "', correta = " + correta + ", categoria = " + categoria + ", feedback = '" + feedback.getText() + "', peso = " + peso + " WHERE id = " + jogador.getIdSelecionada() );
-            SQLAlterar.execute();
-            JOptionPane.showMessageDialog(null, "questão alterada com sucesso!");
-            
-            SQLAlterar.close();
-            
-        } catch (Exception e) {
-                System.err.println(e); 
+                else {
+                    PreparedStatement SQLAlterar = con.prepareStatement( "UPDATE `pythonsteps`.`questoes` SET enunciado = '" + enunciado.getText() + "', alternativaA = '" + A.getText() + "', alternativaB = '" + B.getText() + "', alternativaC = '" + C.getText() + "', alternativaD = '" + D.getText() + "', correta = " + correta + ", categoria = " + categoria + ", feedback = '" + feedback.getText() + "', peso = " + peso + " WHERE id = " + jogador.getIdSelecionada() );
+                    SQLAlterar.execute();
+                    JOptionPane.showMessageDialog(null, "questão alterada com sucesso!");
+                    this.dispose();
+                    SQLAlterar.close();
             }
+
+            } catch (Exception e) {
+                    System.err.println(e); 
+                }
+            
+        }
     }//GEN-LAST:event_alterarActionPerformed
 
     private void categoria1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoria1ActionPerformed
@@ -452,15 +480,19 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
 
     private void deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarActionPerformed
         // TODO add your handling code here:
-        try (Connection con = conector.getConnection();){
+        if (JOptionPane.showConfirmDialog(null,"Deseja deletar a questão?","DELETAR QUESTÃO",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+           try (Connection con = conector.getConnection();){
             
             PreparedStatement SQLDeletar = con.prepareStatement( "DELETE FROM `pythonsteps`.`questoes` WHERE id = " + jogador.getIdSelecionada());
             SQLDeletar.execute();
-             JOptionPane.showMessageDialog(null, "questão deletada com sucesso!");
+            JOptionPane.showMessageDialog(null, "questão deletada com sucesso!");
+            this.dispose();
              
-        } catch (Exception e) {
+            } catch (Exception e) {
                 System.err.println(e); 
-        }
+            } 
+        } 
+        
     }//GEN-LAST:event_deletarActionPerformed
 
     /**

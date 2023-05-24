@@ -5,10 +5,8 @@
 package jframe;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
 import jutil.conector;
 import javax.swing.table.DefaultTableModel;
 import jutil.Jogador;
@@ -34,7 +32,7 @@ public class ConsultarPage extends javax.swing.JFrame {
         try (Connection con = conector.getConnection();) {
             
             Statement stmt = con.createStatement();
-            String SQLQuestion = "SELECT * FROM `pythonsteps`.`questoes` ORDER BY categoria"; //todas as colunas questoes
+            String SQLQuestion = "SELECT * FROM `pythonsteps`.`questoes` ORDER BY categoria, peso"; //todas as colunas questoes
             ResultSet rs = stmt.executeQuery(SQLQuestion);
             DefaultTableModel model = (DefaultTableModel)questoes.getModel();
             questoes.getColumnModel().getColumn(0).setPreferredWidth(200);
@@ -194,7 +192,7 @@ public class ConsultarPage extends javax.swing.JFrame {
         try (Connection con = conector.getConnection();) {
             
             Statement stmt = con.createStatement();
-            String SQLQuestion = "SELECT * FROM `pythonsteps`.`questoes` ORDER BY categoria"; //todas as colunas questoes
+            String SQLQuestion = "SELECT * FROM `pythonsteps`.`questoes` ORDER BY categoria, peso"; //todas as colunas questoes
             ResultSet rs = stmt.executeQuery(SQLQuestion);
             DefaultTableModel model = (DefaultTableModel)questoes.getModel();
             questoes.getColumnModel().getColumn(0).setPreferredWidth(200);
