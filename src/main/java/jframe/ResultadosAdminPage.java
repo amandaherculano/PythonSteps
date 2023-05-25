@@ -4,12 +4,16 @@
  */
 package jframe;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import jutil.conector;
-
+import jutil.Jogador;
 /**
  *
  * @author alexa
@@ -24,12 +28,18 @@ public class ResultadosAdminPage extends javax.swing.JFrame {
     
     public ResultadosAdminPage() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     public void setJogador(jutil.Jogador jogador){
         this.jogador = jogador;
         ExibirResultados();
          
-    }    
+    }   
+    public void header(){
+        JTableHeader header = resultado.getTableHeader();
+        header.setBackground(Color.LIGHT_GRAY);
+        header.setFont(new Font("Times New Roman", Font.BOLD, 18));
+    } 
     
     public void ExibirResultados(){
         try (Connection con = conector.getConnection();) {
@@ -38,10 +48,10 @@ public class ResultadosAdminPage extends javax.swing.JFrame {
             String SQLQuestion = "SELECT nome, ra, nota FROM `pythonsteps`.`resultados` ORDER BY nome, nota";
             ResultSet rs = stmt.executeQuery(SQLQuestion);
             DefaultTableModel model = (DefaultTableModel)resultado.getModel();
-            resultado.getColumnModel().getColumn(0).setPreferredWidth(200);
-            resultado.getColumnModel().getColumn(2).setMaxWidth(100); 
-            resultado.getColumnModel().getColumn(1).setMaxWidth(100);
-            
+            resultado.getColumnModel().getColumn(0).setPreferredWidth(100);
+            resultado.getColumnModel().getColumn(2).setPreferredWidth(100); 
+            resultado.getColumnModel().getColumn(1).setPreferredWidth(100);
+        header();    
             while (rs.next()){
                 String nome = String.valueOf(rs.getNString("nome"));
                 String ra = String.valueOf(rs.getNString("ra"));
@@ -68,6 +78,7 @@ public class ResultadosAdminPage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         resultado = new javax.swing.JTable();
         homeBotao = new javax.swing.JButton();
+        logOutBotao = new javax.swing.JButton();
         FundoResultados = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,6 +110,15 @@ public class ResultadosAdminPage extends javax.swing.JFrame {
         });
         getContentPane().add(homeBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 600, 150, 60));
 
+        logOutBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut.icon.jpg"))); // NOI18N
+        logOutBotao.setBorder(null);
+        logOutBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOutBotaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(logOutBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 610, -1, 40));
+
         FundoResultados.setBackground(new java.awt.Color(217, 217, 217));
         FundoResultados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LoginPage.png"))); // NOI18N
         getContentPane().add(FundoResultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 1370, 690));
@@ -113,6 +133,14 @@ public class ResultadosAdminPage extends javax.swing.JFrame {
         frame.setJogador(jogador);
         this.dispose();
     }//GEN-LAST:event_homeBotaoActionPerformed
+
+    private void logOutBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBotaoActionPerformed
+        // TODO add your handling code here:
+        LoginPage1 frame = new LoginPage1();
+        frame.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_logOutBotaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,6 +182,7 @@ public class ResultadosAdminPage extends javax.swing.JFrame {
     private javax.swing.JLabel FundoResultados;
     private javax.swing.JButton homeBotao;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton logOutBotao;
     private javax.swing.JTable resultado;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables

@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package jframe;
+import javax.swing.JFrame;
+import jutil.Jogador;
 
 /**
  *
@@ -17,6 +19,7 @@ public class ComecarPage extends javax.swing.JFrame {
      */
     public ComecarPage() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         
     }
     public void setJogador(jutil.Jogador jogador){
@@ -47,7 +50,7 @@ public class ComecarPage extends javax.swing.JFrame {
                 homeBotaoActionPerformed(evt);
             }
         });
-        getContentPane().add(homeBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 600, 150, 60));
+        getContentPane().add(homeBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 610, 150, 60));
 
         logOutBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut.icon.jpg"))); // NOI18N
         logOutBotao.setBorder(null);
@@ -78,7 +81,7 @@ public class ComecarPage extends javax.swing.JFrame {
 
     private void homeBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBotaoActionPerformed
         
-        System.out.println(jogador.getID());
+        System.out.println(jogador.getNome());
         if (jogador.getIsAdmin() == 1){
            HomeAdminPage frame = new HomeAdminPage();
            frame.setVisible(true);

@@ -11,8 +11,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import jutil.conector;
+import jutil.Jogador;
 
 /**
  *
@@ -36,6 +38,7 @@ public class Categoria1Page extends javax.swing.JFrame {
      */
     public Categoria1Page(JogoPage jogo, jutil.Jogador jogador) {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.jogo = jogo;
         this.jogador = jogador;
         int qte;

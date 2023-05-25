@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package jframe;
-
+import javax.swing.JFrame;
+import jutil.Jogador;
 /**
  *
  * @author alexa
@@ -16,6 +17,7 @@ public class HomeAdminPage extends javax.swing.JFrame {
      */
     public HomeAdminPage() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     public void setJogador(jutil.Jogador jogador){
         this.jogador = jogador;
@@ -31,7 +33,6 @@ public class HomeAdminPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        home = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
         regras = new javax.swing.JButton();
@@ -47,9 +48,6 @@ public class HomeAdminPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeIcon.jpg"))); // NOI18N
-        getContentPane().add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 590, -1, -1));
-
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo3Python.jpg"))); // NOI18N
         getContentPane().add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, -1, -1));
 
@@ -60,7 +58,7 @@ public class HomeAdminPage extends javax.swing.JFrame {
                 logoutActionPerformed(evt);
             }
         });
-        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 600, -1, -1));
+        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 610, -1, -1));
 
         regras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/HomeBotaoRegras.jpg"))); // NOI18N
         regras.setBorder(null);
@@ -131,6 +129,7 @@ public class HomeAdminPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         QuestoesPage frame = new QuestoesPage();
         frame.setVisible(true);
+        frame.setJogador(jogador);
         this.setVisible(false);        
     }//GEN-LAST:event_questoesBotaoActionPerformed
 
@@ -152,7 +151,7 @@ public class HomeAdminPage extends javax.swing.JFrame {
 
     private void regrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regrasActionPerformed
         // TODO add your handling code here:
-        RegrasPage frame = new RegrasPage();
+        RegrasPage1 frame = new RegrasPage1();
         frame.setVisible(true);
         frame.setJogador(jogador);
         this.dispose();
@@ -197,7 +196,6 @@ public class HomeAdminPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fundo;
-    private javax.swing.JLabel home;
     private javax.swing.JButton jogar;
     private javax.swing.JLabel logo;
     private javax.swing.JButton logout;

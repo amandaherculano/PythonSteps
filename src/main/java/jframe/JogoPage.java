@@ -4,6 +4,8 @@
  */
 package jframe;
 import java.util.Random;
+import javax.swing.JFrame;
+import jutil.Jogador;
 /**
  *
  * @author alexa
@@ -16,7 +18,7 @@ public class JogoPage extends javax.swing.JFrame {
      */
     public JogoPage() {
         initComponents();
-        
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
     public void setJogador(jutil.Jogador jogador){
@@ -34,6 +36,7 @@ public class JogoPage extends javax.swing.JFrame {
     private void initComponents() {
 
         roletaBotao = new javax.swing.JButton();
+        logOutBotao = new javax.swing.JButton();
         questao = new javax.swing.JLabel();
         JogoFundo = new javax.swing.JLabel();
 
@@ -49,6 +52,15 @@ public class JogoPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(roletaBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, -1, -1));
+
+        logOutBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut.icon.jpg"))); // NOI18N
+        logOutBotao.setBorder(null);
+        logOutBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOutBotaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(logOutBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 620, -1, 40));
 
         questao.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         questao.setForeground(new java.awt.Color(153, 204, 255));
@@ -98,6 +110,14 @@ public class JogoPage extends javax.swing.JFrame {
           
         }
     }//GEN-LAST:event_roletaBotaoActionPerformed
+
+    private void logOutBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBotaoActionPerformed
+        // TODO add your handling code here:
+        LoginPage1 frame = new LoginPage1();
+        frame.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_logOutBotaoActionPerformed
     
     public void AlteraTextoRodada( int i){
         questao.setText(Integer.toString(i));
@@ -140,6 +160,7 @@ public class JogoPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JogoFundo;
+    private javax.swing.JButton logOutBotao;
     private javax.swing.JLabel questao;
     private javax.swing.JButton roletaBotao;
     // End of variables declaration//GEN-END:variables

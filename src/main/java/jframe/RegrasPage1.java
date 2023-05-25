@@ -3,23 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package jframe;
+import javax.swing.JFrame;
+import jutil.Jogador;
 /**
  *
  * @author alexa
  */
-public class RegrasPage extends javax.swing.JFrame {
-
+public class RegrasPage1 extends javax.swing.JFrame {
+    
     jutil.Jogador jogador;
     /**
-     * Creates new form regrasPage
+     * Creates new form RegrasPage1
      */
-    public RegrasPage() {
+    public RegrasPage1() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
     public void setJogador(jutil.Jogador jogador){
         this.jogador = jogador;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,39 +33,46 @@ public class RegrasPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        logOut = new javax.swing.JButton();
         setaVoltar = new javax.swing.JButton();
         regrasFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1366, 682));
-        setPreferredSize(new java.awt.Dimension(1366, 682));
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        setaVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/setaVoltar.jpg"))); // NOI18N
+        logOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut2.png"))); // NOI18N
+        logOut.setBorder(null);
+        logOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(logOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 610, 100, 40));
+
+        setaVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/setaVoltar.png"))); // NOI18N
         setaVoltar.setBorder(null);
         setaVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setaVoltarActionPerformed(evt);
             }
         });
-        getContentPane().add(setaVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 60, 50));
+        getContentPane().add(setaVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 590, -1, 70));
 
         regrasFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/RegrasPage.png"))); // NOI18N
-        getContentPane().add(regrasFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 680));
+        getContentPane().add(regrasFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1430, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void setaVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setaVoltarActionPerformed
         // TODO add your handling code here:
-        
+
         System.out.println("apertou");
         if (jogador.getIsAdmin() == 1){
-           HomeAdminPage frame = new HomeAdminPage();
-           frame.setVisible(true);
-           frame.setJogador(jogador);
-           this.dispose();
+            HomeAdminPage frame = new HomeAdminPage();
+            frame.setVisible(true);
+            frame.setJogador(jogador);
+            this.dispose();
         }
         else if (jogador.getIsAdmin() == 0){
             HomePage frame = new HomePage();
@@ -69,8 +80,14 @@ public class RegrasPage extends javax.swing.JFrame {
             frame.setJogador(jogador);
             this.dispose();
         }
-        
     }//GEN-LAST:event_setaVoltarActionPerformed
+
+    private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
+        // TODO add your handling code here:
+        LoginPage1 frame = new LoginPage1();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_logOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,26 +106,26 @@ public class RegrasPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegrasPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegrasPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegrasPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegrasPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegrasPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegrasPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegrasPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegrasPage1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegrasPage().setVisible(true);
+                new RegrasPage1().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton logOut;
     private javax.swing.JLabel regrasFundo;
     private javax.swing.JButton setaVoltar;
     // End of variables declaration//GEN-END:variables

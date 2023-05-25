@@ -4,11 +4,16 @@
  */
 package jframe;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import jutil.conector;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import jutil.Jogador;
 
 /**
  *
@@ -23,13 +28,19 @@ public class ResultadosIndividualPage extends javax.swing.JFrame {
     
     public ResultadosIndividualPage() {
         initComponents();
-        
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     public void setJogador(jutil.Jogador jogador){
         this.jogador = jogador;
         ExibirResultados();
-         
+        
     }
+    
+    public void header(){
+        JTableHeader header = resultado.getTableHeader();
+        header.setBackground(Color.LIGHT_GRAY);
+        header.setFont(new Font("Times New Roman", Font.BOLD, 18));
+    } 
     public void ExibirResultados(){
         try (Connection con = conector.getConnection();) {
             
@@ -38,10 +49,10 @@ public class ResultadosIndividualPage extends javax.swing.JFrame {
             String SQLQuestion = "SELECT R.nome, R.ra, R.nota FROM `pythonsteps`.`resultados` R , `pythonsteps`.`usuarios` U WHERE U.idUsuario = " + jogador.getID() + " ORDER BY idTentativa";
             ResultSet rs = stmt.executeQuery(SQLQuestion);
             DefaultTableModel model = (DefaultTableModel)resultado.getModel();
-            resultado.getColumnModel().getColumn(0).setPreferredWidth(200);
-            resultado.getColumnModel().getColumn(2).setMaxWidth(100); 
-            resultado.getColumnModel().getColumn(1).setMaxWidth(100);
-            
+            resultado.getColumnModel().getColumn(0).setPreferredWidth(100);
+            resultado.getColumnModel().getColumn(2).setPreferredWidth(100); 
+            resultado.getColumnModel().getColumn(1).setPreferredWidth(100);
+            header();    
             while (rs.next()){
                 String nome = String.valueOf(rs.getNString("nome"));
                 String ra = String.valueOf(rs.getNString("ra"));
@@ -85,7 +96,7 @@ public class ResultadosIndividualPage extends javax.swing.JFrame {
                 logOutBotaoActionPerformed(evt);
             }
         });
-        getContentPane().add(logOutBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 600, -1, -1));
+        getContentPane().add(logOutBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 610, -1, -1));
 
         homeBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeIcon.jpg"))); // NOI18N
         homeBotao.setBorder(null);

@@ -7,6 +7,7 @@ package jframe;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import jutil.conector;
 import jutil.Jogador;
@@ -25,7 +26,8 @@ public class LoginPage1 extends javax.swing.JFrame {
      */
     public LoginPage1() {
         initComponents();
-        
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        senhaInserir.setEchoChar('\u25cf');
     }
 
     /**
@@ -55,6 +57,7 @@ public class LoginPage1 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         fecharBotao = new javax.swing.JButton();
         tracos = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         Fundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -137,6 +140,16 @@ public class LoginPage1 extends javax.swing.JFrame {
         tracos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/TracosIcone.jpg"))); // NOI18N
         getContentPane().add(tracos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 250, -1, -1));
 
+        jToggleButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/verSenha.png"))); // NOI18N
+        jToggleButton1.setBorder(null);
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 380, -1, 30));
+
         Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LoginPage.png"))); // NOI18N
         getContentPane().add(Fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -199,6 +212,7 @@ public class LoginPage1 extends javax.swing.JFrame {
                         
                         HomeAdminPage frame = new HomeAdminPage();
                         frame.setVisible(true);
+                        frame.setJogador(jogador);
                         this.dispose();
 
                         con.close();
@@ -218,6 +232,15 @@ public class LoginPage1 extends javax.swing.JFrame {
             System.err.println(e);
         }
     }//GEN-LAST:event_entrarBotaoActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        if (jToggleButton1.isSelected()){
+            senhaInserir.setEchoChar((char)0);
+        }else{
+            senhaInserir.setEchoChar('\u25cf');
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,6 +289,7 @@ public class LoginPage1 extends javax.swing.JFrame {
     private javax.swing.JButton fecharBotao;
     private javax.swing.JLabel imt;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel login;
     private javax.swing.JLabel lupa;
     private javax.swing.JLabel nomes;

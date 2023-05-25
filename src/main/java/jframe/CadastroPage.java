@@ -8,8 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import jutil.conector;
+import jutil.Jogador;
 
 /**
  *
@@ -22,6 +24,8 @@ public class CadastroPage extends javax.swing.JFrame {
      */
     public CadastroPage() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        senhaUsuario.setEchoChar('\u25cf');
     }
 
     /**
@@ -37,7 +41,8 @@ public class CadastroPage extends javax.swing.JFrame {
         TextoSenha = new javax.swing.JLabel();
         TextoEmail = new javax.swing.JLabel();
         TextoRegistro = new javax.swing.JLabel();
-        senhaUsuario = new javax.swing.JFormattedTextField();
+        senhaUsuario = new javax.swing.JPasswordField();
+        verSenha = new javax.swing.JToggleButton();
         registroUsuario = new javax.swing.JFormattedTextField();
         emailUsuario = new javax.swing.JFormattedTextField();
         nomeUsuario = new javax.swing.JFormattedTextField();
@@ -77,6 +82,15 @@ public class CadastroPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(senhaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 260, 240, 40));
+
+        verSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/verSenha2.png"))); // NOI18N
+        verSenha.setBorder(null);
+        verSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verSenhaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(verSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 260, 40, 40));
 
         registroUsuario.setBackground(new java.awt.Color(204, 204, 204));
         registroUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +135,7 @@ public class CadastroPage extends javax.swing.JFrame {
 
         voltarLogin.setBackground(new java.awt.Color(153, 153, 255));
         voltarLogin.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        voltarLogin.setForeground(new java.awt.Color(255, 204, 0));
+        voltarLogin.setForeground(new java.awt.Color(255, 255, 51));
         voltarLogin.setText("VOLTAR");
         voltarLogin.setToolTipText("");
         voltarLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -140,10 +154,6 @@ public class CadastroPage extends javax.swing.JFrame {
     private void nomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeUsuarioActionPerformed
 
     }//GEN-LAST:event_nomeUsuarioActionPerformed
-
-    private void senhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaUsuarioActionPerformed
-
-    }//GEN-LAST:event_senhaUsuarioActionPerformed
 
     private void emailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailUsuarioActionPerformed
 
@@ -216,6 +226,19 @@ public class CadastroPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cadastrarActionPerformed
 
+    private void verSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verSenhaActionPerformed
+        // TODO add your handling code here:
+        if (verSenha.isSelected()){
+            senhaUsuario.setEchoChar((char)0);
+        }else{
+            senhaUsuario.setEchoChar('\u25cf');
+        }
+    }//GEN-LAST:event_verSenhaActionPerformed
+
+    private void senhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhaUsuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -263,8 +286,9 @@ public class CadastroPage extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField emailUsuario;
     private javax.swing.JFormattedTextField nomeUsuario;
     private javax.swing.JFormattedTextField registroUsuario;
-    private javax.swing.JFormattedTextField senhaUsuario;
+    private javax.swing.JPasswordField senhaUsuario;
     private javax.swing.JLabel titulo;
+    private javax.swing.JToggleButton verSenha;
     private javax.swing.JButton voltarLogin;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import jutil.conector;
-
+import jutil.Jogador;
 
 
 /**
@@ -213,6 +213,7 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
         corretaD = new javax.swing.JRadioButton();
         close = new javax.swing.JButton();
         deletar = new javax.swing.JButton();
+        textoAlterar = new javax.swing.JLabel();
         fundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -362,6 +363,11 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
             }
         });
         getContentPane().add(deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 220, 50));
+
+        textoAlterar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        textoAlterar.setText("edite o que vc deseja alterar e clique em \"Alterar\"");
+        textoAlterar.setToolTipText("");
+        getContentPane().add(textoAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, -1, -1));
 
         fundo.setBackground(new java.awt.Color(160, 207, 209));
         fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/SelecionadaPage.png"))); // NOI18N
@@ -557,5 +563,6 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
     private javax.swing.JTextArea feedback;
     private javax.swing.JLabel fundo;
     private javax.swing.JCheckBox medio;
+    private javax.swing.JLabel textoAlterar;
     // End of variables declaration//GEN-END:variables
 }

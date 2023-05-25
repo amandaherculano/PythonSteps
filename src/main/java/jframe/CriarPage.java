@@ -8,8 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import jutil.conector;
+import jutil.Jogador;
 /**
  *
  * @author alexa
@@ -21,6 +23,7 @@ public class CriarPage extends javax.swing.JFrame {
      */
     public CriarPage() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         
     }
     
@@ -348,6 +351,15 @@ public class CriarPage extends javax.swing.JFrame {
                     PreparedStatement inserirQuestao = con.prepareStatement("INSERT INTO `pythonsteps`.`questoes` (`enunciado`, `alternativaA`, `alternativaB`, `alternativaC`, `alternativaD`, `correta`, `categoria`, `feedback`, `peso` ) VALUES ('" + enunciado.getText() + "', '" +  alternativaA.getText() + "', '" + alternativaB.getText() + "', '"+ alternativaC.getText() +  "', '" + alternativaD.getText() + "', " + correta + ", " + categoria + ", '" + feedback.getText() + "', " + peso + ")");
                     inserirQuestao.execute();
                     JOptionPane.showMessageDialog(null, "Questão criada com sucesso!");
+                    enunciado.setText("");
+                    alternativaA.setText("");
+                    alternativaB.setText("");
+                    alternativaC.setText("");
+                    alternativaD.setText("");
+                    feedback.setText("");
+                    categorias.clearSelection();
+                    pesos.clearSelection();
+                    corretas.clearSelection();
                     
                     stmt.close();
                     existeQuestao.close();

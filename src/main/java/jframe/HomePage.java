@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package jframe;
-
+import javax.swing.JFrame;
+import jutil.Jogador;
 
 /**
  *
@@ -17,6 +18,7 @@ public class HomePage extends javax.swing.JFrame {
      */
     public HomePage() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
     public void setJogador(jutil.Jogador jogador){
@@ -34,7 +36,6 @@ public class HomePage extends javax.swing.JFrame {
     private void initComponents() {
 
         logOutBotao = new javax.swing.JButton();
-        home = new javax.swing.JLabel();
         texto = new javax.swing.JLabel();
         regras = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
@@ -53,15 +54,7 @@ public class HomePage extends javax.swing.JFrame {
                 logOutBotaoActionPerformed(evt);
             }
         });
-        getContentPane().add(logOutBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 610, -1, 40));
-
-        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/homeIcon.jpg"))); // NOI18N
-        home.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                homeMouseClicked(evt);
-            }
-        });
-        getContentPane().add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 600, -1, 60));
+        getContentPane().add(logOutBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 600, -1, 40));
 
         texto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/HomeEscrita.jpg"))); // NOI18N
         getContentPane().add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, -1));
@@ -110,13 +103,8 @@ public class HomePage extends javax.swing.JFrame {
  
     }//GEN-LAST:event_logOutBotaoActionPerformed
 
-    private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_homeMouseClicked
-
     private void jogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jogarActionPerformed
         // TODO add your handling code here:
-        
         ComecarPage frame = new ComecarPage();
         frame.setVisible(true);
         frame.setJogador(jogador);
@@ -125,7 +113,7 @@ public class HomePage extends javax.swing.JFrame {
 
     private void regrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regrasActionPerformed
         // TODO add your handling code here:
-        RegrasPage frame = new RegrasPage();
+        RegrasPage1 frame = new RegrasPage1();
         frame.setVisible(true);
         frame.setJogador(jogador);
         this.dispose();
@@ -177,7 +165,6 @@ public class HomePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fundo;
-    private javax.swing.JLabel home;
     private javax.swing.JButton jogar;
     private javax.swing.JButton logOutBotao;
     private javax.swing.JLabel logo;

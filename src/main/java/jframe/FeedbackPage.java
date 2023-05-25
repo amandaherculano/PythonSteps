@@ -11,8 +11,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.awt.Color;
+import javax.swing.JFrame;
 import jutil.conector;
-
+import jutil.Jogador;
 /**
  *
  * @author alexa
@@ -29,6 +30,7 @@ public class FeedbackPage extends javax.swing.JFrame {
     
     public FeedbackPage() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
     public void setJogador(jutil.Jogador jogador){
@@ -100,19 +102,19 @@ public class FeedbackPage extends javax.swing.JFrame {
                 //sinalizar alternativa correta
                 switch (correta){
                     case 1 -> {
-                       alternativaA.setBackground(Color.green);
+                       alternativaA.setBackground(new Color(153, 255, 102));
                        break;
                     }
                     case 2 -> {
-                       alternativaB.setBackground(Color.green);
+                       alternativaB.setBackground(new Color(153, 255, 102));
                        break;
                     }
                     case 3 -> {
-                       alternativaC.setBackground(Color.green); 
+                       alternativaC.setBackground(new Color(153, 255, 102)); 
                        break;
                     }
                     case 4 -> {
-                       alternativaD.setBackground(Color.green);
+                       alternativaD.setBackground(new Color(153, 255, 102));
                        break;
                     }
                     default -> {
@@ -147,6 +149,7 @@ public class FeedbackPage extends javax.swing.JFrame {
         textoPontuacao = new javax.swing.JLabel();
         tituloFeedBack = new javax.swing.JLabel();
         seguinte = new javax.swing.JButton();
+        logOut = new javax.swing.JButton();
         FeedBackFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -239,6 +242,15 @@ public class FeedbackPage extends javax.swing.JFrame {
         });
         getContentPane().add(seguinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 610, 180, 50));
 
+        logOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut.icon.jpg"))); // NOI18N
+        logOut.setBorder(null);
+        logOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(logOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 620, -1, -1));
+
         FeedBackFundo.setBackground(new java.awt.Color(217, 217, 217));
         FeedBackFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/FeedBackPage.png"))); // NOI18N
         FeedBackFundo.setMaximumSize(new java.awt.Dimension(1366, 682));
@@ -274,6 +286,13 @@ public class FeedbackPage extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_seguinteActionPerformed
+
+    private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
+        // TODO add your handling code here:
+        LoginPage1 frame = new LoginPage1();
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,6 +337,7 @@ public class FeedbackPage extends javax.swing.JFrame {
     private javax.swing.JTextArea alternativaD;
     private javax.swing.JTextArea enunciado;
     private javax.swing.JTextArea feedback;
+    private javax.swing.JButton logOut;
     private javax.swing.JLabel peso;
     private javax.swing.JLabel pontuacao;
     private javax.swing.JButton seguinte;

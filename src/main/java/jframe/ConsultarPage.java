@@ -5,10 +5,15 @@
 package jframe;
 
 import java.sql.Connection;
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import jutil.conector;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import jutil.Jogador;
 import jutil.Jogador;
 
 
@@ -17,6 +22,7 @@ import jutil.Jogador;
  *
  * @author alexa
  */
+
 public class ConsultarPage extends javax.swing.JFrame {
    
     Jogador jogador = new Jogador();
@@ -25,9 +31,15 @@ public class ConsultarPage extends javax.swing.JFrame {
      * Creates new form ConsultarPage
      * 
      */
-    
+    public void header(){
+        JTableHeader header = questoes.getTableHeader();
+        header.setBackground(Color.LIGHT_GRAY);
+        header.setFont(new Font("Times New Roman", Font.BOLD, 18));
+    } 
+       
     public ConsultarPage() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.jogador = jogador;    
         try (Connection con = conector.getConnection();) {
             
@@ -35,10 +47,10 @@ public class ConsultarPage extends javax.swing.JFrame {
             String SQLQuestion = "SELECT * FROM `pythonsteps`.`questoes` ORDER BY categoria, peso"; //todas as colunas questoes
             ResultSet rs = stmt.executeQuery(SQLQuestion);
             DefaultTableModel model = (DefaultTableModel)questoes.getModel();
-            questoes.getColumnModel().getColumn(0).setPreferredWidth(200);
-            questoes.getColumnModel().getColumn(2).setMaxWidth(100); 
-            questoes.getColumnModel().getColumn(1).setMaxWidth(100);
-            
+            questoes.getColumnModel().getColumn(0).setPreferredWidth(1000);
+            questoes.getColumnModel().getColumn(2).setPreferredWidth(100); 
+            questoes.getColumnModel().getColumn(1).setPreferredWidth(100);
+        header();
             while (rs.next()){
                 String enunciado = String.valueOf(rs.getNString("enunciado"));
                 String categoria = String.valueOf(rs.getInt("categoria"));
@@ -67,6 +79,7 @@ public class ConsultarPage extends javax.swing.JFrame {
         questoes = new javax.swing.JTable();
         voltar = new javax.swing.JButton();
         refresh = new javax.swing.JButton();
+        refressText = new javax.swing.JLabel();
         ConsultarFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -143,6 +156,9 @@ public class ConsultarPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+
+        refressText.setText("Atualizar a tabela logo após deletar ou alterar alguma questão");
+        getContentPane().add(refressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, 20));
 
         ConsultarFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LoginPage.png"))); // NOI18N
         getContentPane().add(ConsultarFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -253,6 +269,7 @@ public class ConsultarPage extends javax.swing.JFrame {
     private javax.swing.JButton logOut;
     private javax.swing.JTable questoes;
     private javax.swing.JButton refresh;
+    private javax.swing.JLabel refressText;
     private javax.swing.JLabel titulo;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables

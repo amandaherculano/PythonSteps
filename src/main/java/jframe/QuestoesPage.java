@@ -4,17 +4,25 @@
  */
 package jframe;
 
+import javax.swing.JFrame;
+import jutil.Jogador;
+
 /**
  *
  * @author alexa
  */
 public class QuestoesPage extends javax.swing.JFrame {
-
+    
+    jutil.Jogador jogador;
     /**
      * Creates new form QuestoesPage
      */
     public QuestoesPage() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }
+    public void setJogador(jutil.Jogador jogador){
+        this.jogador = jogador;
     }
 
     /**
@@ -88,6 +96,7 @@ public class QuestoesPage extends javax.swing.JFrame {
         // TODO add your handling code here:]
         HomeAdminPage frame = new HomeAdminPage();
         frame.setVisible(true);
+        frame.setJogador(jogador);
         this.dispose();
     }//GEN-LAST:event_homeActionPerformed
 
