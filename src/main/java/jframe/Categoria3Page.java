@@ -170,7 +170,7 @@ public class Categoria3Page extends javax.swing.JFrame {
         alternativaA.setBackground(Color.lightGray);
         alternativaB.setBackground(Color.lightGray);
         alternativaC.setBackground(Color.lightGray);
-        alternativaD.setBackground(Color.white);
+        alternativaD.setBackground(new Color(204,153,255));
     }//GEN-LAST:event_alternativaDActionPerformed
 
     private void SeguinteBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeguinteBotaoActionPerformed
@@ -192,6 +192,7 @@ public class Categoria3Page extends javax.swing.JFrame {
             FeedbackPage feedbackPage = new FeedbackPage();
             feedbackPage.setJogador(jogador);
             feedbackPage.setVisible(true);
+            vezes = 1;
             jogo.dispose();
             this.dispose();
         }
@@ -207,7 +208,7 @@ public class Categoria3Page extends javax.swing.JFrame {
     private void alternativaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alternativaAActionPerformed
         // TODO add your handling code here:
         selecionada = 1;
-        alternativaA.setBackground(Color.white);
+        alternativaA.setBackground(new Color(204,153,255));
         alternativaB.setBackground(Color.lightGray);
         alternativaC.setBackground(Color.lightGray);
         alternativaD.setBackground(Color.lightGray);
@@ -217,7 +218,7 @@ public class Categoria3Page extends javax.swing.JFrame {
         // TODO add your handling code here:
         selecionada = 2;
         alternativaA.setBackground(Color.lightGray);
-        alternativaB.setBackground(Color.white);
+        alternativaB.setBackground(new Color(204,153,255));
         alternativaC.setBackground(Color.lightGray);
         alternativaD.setBackground(Color.lightGray);
     }//GEN-LAST:event_alternativaBActionPerformed
@@ -227,7 +228,7 @@ public class Categoria3Page extends javax.swing.JFrame {
         selecionada = 3;
         alternativaA.setBackground(Color.lightGray);
         alternativaB.setBackground(Color.lightGray);
-        alternativaC.setBackground(Color.white);
+        alternativaC.setBackground(new Color(204,153,255));
         alternativaD.setBackground(Color.lightGray);
     }//GEN-LAST:event_alternativaCActionPerformed
 

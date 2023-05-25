@@ -50,15 +50,17 @@ public class CadastroPage extends javax.swing.JFrame {
         Logo = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
         voltarLogin = new javax.swing.JButton();
+        textoComentario = new javax.swing.JLabel();
         Fundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(13, 47, 55));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TextoNome.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         TextoNome.setForeground(new java.awt.Color(255, 255, 255));
-        TextoNome.setText("Nome do usuário:");
-        getContentPane().add(TextoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 130, 170, -1));
+        TextoNome.setText("Nome completo:");
+        getContentPane().add(TextoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 140, 170, -1));
 
         TextoSenha.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         TextoSenha.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,6 +129,7 @@ public class CadastroPage extends javax.swing.JFrame {
         });
         getContentPane().add(cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 560, 170, 40));
 
+        Logo.setBackground(new java.awt.Color(13, 47, 55));
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo2Python.jpg"))); // NOI18N
         getContentPane().add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 690, 500));
 
@@ -145,6 +148,13 @@ public class CadastroPage extends javax.swing.JFrame {
         });
         getContentPane().add(voltarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1232, 10, 120, 30));
 
+        textoComentario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        textoComentario.setForeground(new java.awt.Color(255, 255, 255));
+        textoComentario.setText("RA com .  e -");
+        getContentPane().add(textoComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 500, -1, -1));
+
+        Fundo.setBackground(new java.awt.Color(13, 47, 55));
+        Fundo.setForeground(new java.awt.Color(13, 47, 55));
         Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CadastroPage.png"))); // NOI18N
         getContentPane().add(Fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 680));
 
@@ -287,6 +297,7 @@ public class CadastroPage extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField nomeUsuario;
     private javax.swing.JFormattedTextField registroUsuario;
     private javax.swing.JPasswordField senhaUsuario;
+    private javax.swing.JLabel textoComentario;
     private javax.swing.JLabel titulo;
     private javax.swing.JToggleButton verSenha;
     private javax.swing.JButton voltarLogin;

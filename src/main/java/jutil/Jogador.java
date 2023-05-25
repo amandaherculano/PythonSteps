@@ -60,6 +60,14 @@ public class Jogador {
     public void Addvezes(int i){
         this.vezes += 1 ;
     }
+    
+    public void LimparVezes(){
+        this.vezes = 1;
+    }
+    
+    public void LimparPontuacao(){
+        this.pontuacao = 0;
+    }
    
     public  void SalvarLinha(int selecionada){
        this.selecionada = selecionada;

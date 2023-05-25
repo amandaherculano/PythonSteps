@@ -65,7 +65,7 @@ public class JogoPage extends javax.swing.JFrame {
         questao.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         questao.setForeground(new java.awt.Color(153, 204, 255));
         questao.setText("1");
-        getContentPane().add(questao, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, 30));
+        getContentPane().add(questao, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 50, 30));
 
         JogoFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/JogoPage.png"))); // NOI18N
         getContentPane().add(JogoFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

@@ -57,7 +57,8 @@ public class LoginPage1 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         fecharBotao = new javax.swing.JButton();
         tracos = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        verSenha = new javax.swing.JToggleButton();
+        textoComentario = new javax.swing.JLabel();
         Fundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -120,13 +121,13 @@ public class LoginPage1 extends javax.swing.JFrame {
 
         usuarioTexto.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         usuarioTexto.setForeground(new java.awt.Color(255, 204, 0));
-        usuarioTexto.setText("Usuário:");
-        getContentPane().add(usuarioTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 260, -1, -1));
+        usuarioTexto.setText("Registro do Usuário:");
+        getContentPane().add(usuarioTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 270, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 204, 0));
-        jLabel1.setText("Senha");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 340, -1, -1));
+        jLabel1.setText("Senha:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 350, -1, -1));
 
         fecharBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LoginFecharBotao.jpg"))); // NOI18N
         fecharBotao.setBorder(null);
@@ -140,15 +141,20 @@ public class LoginPage1 extends javax.swing.JFrame {
         tracos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/TracosIcone.jpg"))); // NOI18N
         getContentPane().add(tracos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 250, -1, -1));
 
-        jToggleButton1.setBackground(new java.awt.Color(0, 102, 204));
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/verSenha.png"))); // NOI18N
-        jToggleButton1.setBorder(null);
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        verSenha.setBackground(new java.awt.Color(0, 102, 204));
+        verSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/verSenha.png"))); // NOI18N
+        verSenha.setBorder(null);
+        verSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                verSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 380, -1, 30));
+        getContentPane().add(verSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 380, -1, 30));
+
+        textoComentario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        textoComentario.setForeground(new java.awt.Color(255, 255, 255));
+        textoComentario.setText("RA com .  e -");
+        getContentPane().add(textoComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 330, -1, -1));
 
         Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LoginPage.png"))); // NOI18N
         getContentPane().add(Fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -186,10 +192,7 @@ public class LoginPage1 extends javax.swing.JFrame {
                         jogador.SalvarRA(rs.getNString("ra"));
                         jogador.SalvarID(rs.getInt("idUsuario"));
                         jogador.SalvarIsAdmin(rs.getInt("admin"));
-                        System.out.println(jogador.getID());
-                        System.out.println(jogador.getNome());
-                        System.out.println(jogador.getRA());
-                        System.out.println(jogador.getIsAdmin());
+                        
                         
                         HomePage frame = new HomePage();
                         frame.setVisible(true);
@@ -205,10 +208,6 @@ public class LoginPage1 extends javax.swing.JFrame {
                         jogador.SalvarRA(rs.getNString("ra"));
                         jogador.SalvarID(rs.getInt("idUsuario"));
                         jogador.SalvarIsAdmin(rs.getInt("admin"));
-                        System.out.println(jogador.getID());
-                        System.out.println(jogador.getNome());
-                        System.out.println(jogador.getRA());
-                        System.out.println(jogador.getIsAdmin());
                         
                         HomeAdminPage frame = new HomeAdminPage();
                         frame.setVisible(true);
@@ -233,14 +232,14 @@ public class LoginPage1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_entrarBotaoActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void verSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verSenhaActionPerformed
         // TODO add your handling code here:
-        if (jToggleButton1.isSelected()){
+        if (verSenha.isSelected()){
             senhaInserir.setEchoChar((char)0);
         }else{
             senhaInserir.setEchoChar('\u25cf');
         }
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_verSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,14 +288,15 @@ public class LoginPage1 extends javax.swing.JFrame {
     private javax.swing.JButton fecharBotao;
     private javax.swing.JLabel imt;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel login;
     private javax.swing.JLabel lupa;
     private javax.swing.JLabel nomes;
     private javax.swing.JLabel pontosIcone;
     private javax.swing.JPasswordField senhaInserir;
+    private javax.swing.JLabel textoComentario;
     private javax.swing.JLabel tracos;
     private javax.swing.JTextField usuarioInserir;
     private javax.swing.JLabel usuarioTexto;
+    private javax.swing.JToggleButton verSenha;
     // End of variables declaration//GEN-END:variables
 }

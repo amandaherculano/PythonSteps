@@ -157,7 +157,6 @@ public class Categoria2Page extends javax.swing.JFrame {
         enunciado.setColumns(20);
         enunciado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         enunciado.setRows(5);
-        enunciado.setText("1\n2\n3\n4\n5\n6\n7\n");
         enunciado.setAutoscrolls(false);
         enunciado.setBorder(null);
         getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 1190, 140));
@@ -188,6 +187,7 @@ public class Categoria2Page extends javax.swing.JFrame {
             FeedbackPage feedbackPage = new FeedbackPage();
             feedbackPage.setJogador(jogador);
             feedbackPage.setVisible(true);
+            vezes = 1;
             jogo.dispose();
             this.dispose();
         }
@@ -203,7 +203,7 @@ public class Categoria2Page extends javax.swing.JFrame {
     private void alternativaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alternativaAActionPerformed
         // TODO add your handling code here:
         selecionada = 1;
-        alternativaA.setBackground(Color.white);
+        alternativaA.setBackground(new Color(204,255,153));
         alternativaB.setBackground(Color.lightGray);
         alternativaD.setBackground(Color.lightGray);
         alternativaC.setBackground(Color.lightGray);
@@ -215,14 +215,14 @@ public class Categoria2Page extends javax.swing.JFrame {
         alternativaA.setBackground(Color.lightGray);
         alternativaB.setBackground(Color.lightGray);
         alternativaD.setBackground(Color.lightGray);
-        alternativaC.setBackground(Color.white);
+        alternativaC.setBackground(new Color(204,255,153));
     }//GEN-LAST:event_alternativaCActionPerformed
 
     private void alternativaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alternativaBActionPerformed
         // TODO add your handling code here:
         selecionada = 2;
         alternativaA.setBackground(Color.lightGray);
-        alternativaB.setBackground(Color.white);
+        alternativaB.setBackground(new Color(204,255,153));
         alternativaD.setBackground(Color.lightGray);
         alternativaC.setBackground(Color.lightGray);
     }//GEN-LAST:event_alternativaBActionPerformed
@@ -233,7 +233,7 @@ public class Categoria2Page extends javax.swing.JFrame {
         alternativaA.setBackground(Color.lightGray);
         alternativaB.setBackground(Color.lightGray);
         alternativaC.setBackground(Color.lightGray);
-        alternativaD.setBackground(Color.white);
+        alternativaD.setBackground(new Color(204,255,153));
     }//GEN-LAST:event_alternativaDActionPerformed
 
     /**

@@ -46,7 +46,7 @@ public class ResultadosIndividualPage extends javax.swing.JFrame {
             
             Statement stmt = con.createStatement();
             //trocar para jogador.getID()
-            String SQLQuestion = "SELECT R.nome, R.ra, R.nota FROM `pythonsteps`.`resultados` R , `pythonsteps`.`usuarios` U WHERE U.idUsuario = " + jogador.getID() + " ORDER BY idTentativa";
+            String SQLQuestion = "SELECT nome, ra, nota FROM `pythonsteps`.`resultados` WHERE ra = '" + jogador.getRA() + "' ORDER BY idTentativa";
             ResultSet rs = stmt.executeQuery(SQLQuestion);
             DefaultTableModel model = (DefaultTableModel)resultado.getModel();
             resultado.getColumnModel().getColumn(0).setPreferredWidth(100);

@@ -55,6 +55,7 @@ public class FeedbackPage extends javax.swing.JFrame {
                 listaPerguntas.add(jogador.getPerguntas4().get(i));
             }
         }
+        //0, 1, 2, 3, 4 (passo deve ir até 4)
         ExibirPerguntas((int)listaPerguntas.get(passo));
     }
     
@@ -158,8 +159,9 @@ public class FeedbackPage extends javax.swing.JFrame {
         enunciado.setEditable(false);
         enunciado.setBackground(new java.awt.Color(48, 131, 182));
         enunciado.setColumns(20);
-        enunciado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        enunciado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         enunciado.setRows(5);
+        enunciado.setText("p\n´´\np\np\np\np\n");
         enunciado.setBorder(null);
         getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 1190, 140));
 
@@ -263,28 +265,47 @@ public class FeedbackPage extends javax.swing.JFrame {
 
     private void seguinteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seguinteActionPerformed
         // TODO add your handling code here:
-        
+        //lsitaPerguntas.size() = 5
+        //a questão que está é menor do que o tamannho da lista , 0, 1, 2, 3, 4
         if ( passo < listaPerguntas.size()){
-            if (passo == listaPerguntas.size() - 1){
-                seguinte.setText("Finalizar"); 
-               if (jogador.getIsAdmin() == 1){
-                    HomeAdminPage frame = new HomeAdminPage();
-                    frame.setVisible(true);
-                    frame.setJogador(jogador);
-                    this.dispose();
-                    
-                }
-                else {
-                    HomePage frame = new HomePage();
-                    frame.setVisible(true);
-                    frame.setJogador(jogador);
-                    this.dispose();
-            }
-            }
             
-            ExibirPerguntas((int)listaPerguntas.get(passo));
+            //se for 4 ÚLTIMO
+            if (passo == listaPerguntas.size() - 1){ 
+                ExibirPerguntas((int)listaPerguntas.get(passo));
+                seguinte.setText("Finalizar");
+            }
+            else{ // se for 0, 1, 2 ou 3 PRIMEIROS 
+               ExibirPerguntas((int)listaPerguntas.get(passo));
+            }
+        //5 no caso
+        } else {
+            if (jogador.getIsAdmin() == 1){
+                HomeAdminPage frame = new HomeAdminPage();
+                frame.setVisible(true);
+                frame.setJogador(jogador);
+                this.dispose();
+                passo = 0;
+                jogador.LimparPontuacao();
+                jogador.LimparVezes();
+                jogador.getPerguntas1().clear();
+                jogador.getPerguntas2().clear();
+                jogador.getPerguntas3().clear();
+                jogador.getPerguntas4().clear();
+                      
+            }else if (jogador.getIsAdmin() ==0){
+                HomePage frame = new HomePage();
+                frame.setVisible(true);
+                frame.setJogador(jogador);
+                this.dispose();
+                passo = 0;
+                jogador.LimparPontuacao();
+                jogador.LimparVezes();
+                jogador.getPerguntas1().clear();
+                jogador.getPerguntas2().clear();
+                jogador.getPerguntas3().clear();
+                jogador.getPerguntas4().clear();
+            }
         }
-        
     }//GEN-LAST:event_seguinteActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
