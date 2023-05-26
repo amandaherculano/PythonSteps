@@ -189,9 +189,9 @@ public class CadastroPage extends javax.swing.JFrame {
             ResultSet rs = stmt.executeQuery(SQLUser);
             //System.out.println(registroUsuario.getText().substring(0, 5));
             //System.out.println(senhaUsuario.getText().substring(0, 5));
-
+           
             if (rs.next() == false) {
-
+                //se for admin
                 if (registroUsuario.getText().substring(0, 5).equals("admin") && (senhaUsuario.getText().substring(0,5)).equals("admin")){
 
                     PreparedStatement insertUser = con.prepareStatement("INSERT INTO `pythonsteps`.`usuarios` (`ra`, `nome`, `email`, `senha`, `admin` ) VALUES ('" + registroUsuario.getText() + "', '" +  nomeUsuario.getText() + "', '" + emailUsuario.getText() + "', '"+ senhaUsuario.getText() +  "', '" + "1"+ "')");
@@ -206,9 +206,11 @@ public class CadastroPage extends javax.swing.JFrame {
                     insertUser.close();
                     stmt.close();
                     rs.close();
-
+                //aluno, conferir formato RA
                 } else{
-
+                    
+                    if (registroUsuario.getText().contains(".") && registroUsuario.getText().contains("-")){
+                    
                     PreparedStatement insertUser = con.prepareStatement("INSERT INTO `pythonsteps`.`usuarios` (`ra`, `nome`, `email`, `senha`, `admin` ) VALUES ('" + registroUsuario.getText() + "', '" +  nomeUsuario.getText() + "', '" + emailUsuario.getText() + "', '"+ senhaUsuario.getText() +  "', '" + "0" + "')");
                     insertUser.execute();
                     JOptionPane.showMessageDialog(null, "Usuário criado com sucesso. Conecte-se!");
@@ -220,8 +222,10 @@ public class CadastroPage extends javax.swing.JFrame {
                     insertUser.close();
                     stmt.close();
                     rs.close();
-                }
-
+                    }else{
+                       JOptionPane.showMessageDialog(null, "Insira o registro do usuário da forma correta!"); 
+                    }
+            }
             }else {
 
                 JOptionPane.showMessageDialog(null, "Usuário já existente!");
