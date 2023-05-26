@@ -45,7 +45,6 @@ public class LoginPage1 extends javax.swing.JFrame {
         pontosIcone = new javax.swing.JLabel();
         LogoMaua = new javax.swing.JLabel();
         imt = new javax.swing.JLabel();
-        lupa = new javax.swing.JLabel();
         dif = new javax.swing.JLabel();
         des = new javax.swing.JLabel();
         entrarBotao = new javax.swing.JButton();
@@ -81,9 +80,6 @@ public class LoginPage1 extends javax.swing.JFrame {
         imt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/IMT.jpg"))); // NOI18N
         getContentPane().add(imt, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
 
-        lupa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lupaIcone.jpg"))); // NOI18N
-        getContentPane().add(lupa, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, -1, -1));
-
         dif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DifIcone.jpg"))); // NOI18N
         getContentPane().add(dif, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 0, -1, -1));
 
@@ -117,7 +113,7 @@ public class LoginPage1 extends javax.swing.JFrame {
         login.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         login.setForeground(new java.awt.Color(255, 204, 0));
         login.setText("LOGIN");
-        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 200, -1, -1));
+        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 200, -1, -1));
 
         usuarioTexto.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         usuarioTexto.setForeground(new java.awt.Color(255, 204, 0));
@@ -153,7 +149,7 @@ public class LoginPage1 extends javax.swing.JFrame {
 
         textoComentario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         textoComentario.setForeground(new java.awt.Color(255, 255, 255));
-        textoComentario.setText("RA com .  e -");
+        textoComentario.setText("RA completo (com ponto e traço)");
         getContentPane().add(textoComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 330, -1, -1));
 
         Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LoginPage.png"))); // NOI18N
@@ -289,7 +285,6 @@ public class LoginPage1 extends javax.swing.JFrame {
     private javax.swing.JLabel imt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel login;
-    private javax.swing.JLabel lupa;
     private javax.swing.JLabel nomes;
     private javax.swing.JLabel pontosIcone;
     private javax.swing.JPasswordField senhaInserir;
