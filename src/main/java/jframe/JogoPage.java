@@ -67,7 +67,7 @@ public class JogoPage extends javax.swing.JFrame {
         questao.setText("1");
         getContentPane().add(questao, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 50, 30));
 
-        JogoFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/JogoPage.png"))); // NOI18N
+        JogoFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/JogoPage2.png"))); // NOI18N
         getContentPane().add(JogoFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

@@ -161,7 +161,7 @@ public class FeedbackPage extends javax.swing.JFrame {
         enunciado.setColumns(20);
         enunciado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         enunciado.setRows(5);
-        enunciado.setText("p\n´´\np\np\np\np\n");
+        enunciado.setText("\n\n");
         enunciado.setBorder(null);
         getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 1190, 140));
 
@@ -203,7 +203,7 @@ public class FeedbackPage extends javax.swing.JFrame {
         feedback.setEditable(false);
         feedback.setBackground(new java.awt.Color(253, 217, 108));
         feedback.setColumns(20);
-        feedback.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        feedback.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         feedback.setRows(5);
         feedback.setToolTipText("");
         feedback.setBorder(null);

@@ -48,8 +48,6 @@ public class CadastroPage extends javax.swing.JFrame {
         nomeUsuario = new javax.swing.JFormattedTextField();
         registroUsuario = new javax.swing.JFormattedTextField();
         cadastrar = new javax.swing.JButton();
-        Logo = new javax.swing.JLabel();
-        titulo = new javax.swing.JLabel();
         voltarLogin = new javax.swing.JButton();
         raTexto = new javax.swing.JLabel();
         Fundo = new javax.swing.JLabel();
@@ -130,13 +128,6 @@ public class CadastroPage extends javax.swing.JFrame {
         });
         getContentPane().add(cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 560, 170, 40));
 
-        Logo.setBackground(new java.awt.Color(13, 47, 55));
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo2Python.jpg"))); // NOI18N
-        getContentPane().add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 690, 500));
-
-        titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cadastroTitulo.jpg"))); // NOI18N
-        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, -1));
-
         voltarLogin.setBackground(new java.awt.Color(153, 153, 255));
         voltarLogin.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         voltarLogin.setForeground(new java.awt.Color(255, 255, 51));
@@ -155,8 +146,8 @@ public class CadastroPage extends javax.swing.JFrame {
 
         Fundo.setBackground(new java.awt.Color(13, 47, 55));
         Fundo.setForeground(new java.awt.Color(13, 47, 55));
-        Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CadastroPage.png"))); // NOI18N
-        getContentPane().add(Fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 680));
+        Fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cadastro2.png"))); // NOI18N
+        getContentPane().add(Fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2460, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -302,7 +293,6 @@ public class CadastroPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fundo;
-    private javax.swing.JLabel Logo;
     private javax.swing.JLabel TextoEmail;
     private javax.swing.JLabel TextoNome;
     private javax.swing.JLabel TextoRegistro;
@@ -313,7 +303,6 @@ public class CadastroPage extends javax.swing.JFrame {
     private javax.swing.JLabel raTexto;
     private javax.swing.JFormattedTextField registroUsuario;
     private javax.swing.JPasswordField senhaUsuario;
-    private javax.swing.JLabel titulo;
     private javax.swing.JToggleButton verSenha;
     private javax.swing.JButton voltarLogin;
     // End of variables declaration//GEN-END:variables

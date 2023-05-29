@@ -43,10 +43,8 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
             //mudar para guardar o id da questão de acordo com a RowSelected e exibir baseado no id
             //jogador.getSelecionadaID()
             
-            System.out.println(jogador.getLinha());
             Statement stmt = con.createStatement();
             String SQLExibir = "WITH `OrdemLinhas` AS (SELECT `id`, `enunciado`, `alternativaA`, `alternativaB`, `alternativaC`, `alternativaD`, `correta`, `categoria`, `feedback`, `peso`,  ROW_NUMBER() OVER (ORDER BY `categoria`, `peso`) AS `RowNumbers` FROM `pythonsteps`.`questoes` ) SELECT * FROM `OrdemLinhas` WHERE `RowNumbers` = " + jogador.getLinha() ; //retorna linha selecionada
-            System.out.println(jogador.getLinha());
             ResultSet linhaSelecionada = stmt.executeQuery(SQLExibir);
             
             while (linhaSelecionada.next()){
@@ -364,10 +362,10 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
         });
         getContentPane().add(deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 220, 50));
 
-        textoAlterar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        textoAlterar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         textoAlterar.setText("edite o que vc deseja alterar e clique em \"Alterar\"");
         textoAlterar.setToolTipText("");
-        getContentPane().add(textoAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, -1, -1));
+        getContentPane().add(textoAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, -1));
 
         fundo.setBackground(new java.awt.Color(160, 207, 209));
         fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/SelecionadaPage.png"))); // NOI18N

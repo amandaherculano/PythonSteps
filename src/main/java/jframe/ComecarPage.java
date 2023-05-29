@@ -50,7 +50,7 @@ public class ComecarPage extends javax.swing.JFrame {
                 homeBotaoActionPerformed(evt);
             }
         });
-        getContentPane().add(homeBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 610, 150, 60));
+        getContentPane().add(homeBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 600, 150, 60));
 
         logOutBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut.icon.jpg"))); // NOI18N
         logOutBotao.setBorder(null);
@@ -73,8 +73,8 @@ public class ComecarPage extends javax.swing.JFrame {
         });
         getContentPane().add(comecarBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 320, 310, 90));
 
-        começarFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ComecarPage.png"))); // NOI18N
-        getContentPane().add(começarFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 690));
+        começarFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ComecarPage2.png"))); // NOI18N
+        getContentPane().add(começarFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
