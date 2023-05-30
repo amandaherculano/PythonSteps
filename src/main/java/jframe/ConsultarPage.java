@@ -155,10 +155,10 @@ public class ConsultarPage extends javax.swing.JFrame {
                 refreshActionPerformed(evt);
             }
         });
-        getContentPane().add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        getContentPane().add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
         refressText.setText("Atualizar a tabela logo após deletar ou alterar alguma questão");
-        getContentPane().add(refressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, 20));
+        getContentPane().add(refressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, 20));
 
         ConsultarFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LoginPage.png"))); // NOI18N
         getContentPane().add(ConsultarFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

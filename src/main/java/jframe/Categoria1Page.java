@@ -180,7 +180,7 @@ public class Categoria1Page extends javax.swing.JFrame {
         // TODO add your handling code here:  
         selecionada = 1;
         alternativaA.setBackground(new Color(255, 204, 204));
-        alternativaB.setBackground(Color.lightGray);
+        alternativaB.setBackground(Color.white);
         alternativaC.setBackground(Color.lightGray);
         alternativaD.setBackground(Color.lightGray);
     }//GEN-LAST:event_alternativaAActionPerformed

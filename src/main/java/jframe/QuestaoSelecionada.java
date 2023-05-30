@@ -29,6 +29,7 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
     
     public QuestaoSelecionada() {
         initComponents();
+        
     }
     
     public void setJogador(jutil.Jogador jogador){
@@ -262,6 +263,7 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
         });
         getContentPane().add(alterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 220, 50));
 
+        facil.setBackground(new java.awt.Color(160, 207, 209));
         dificuldade.add(facil);
         facil.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         facil.setForeground(new java.awt.Color(102, 102, 102));
@@ -273,6 +275,7 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
         });
         getContentPane().add(facil, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 280, -1, 20));
 
+        medio.setBackground(new java.awt.Color(160, 207, 209));
         dificuldade.add(medio);
         medio.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         medio.setForeground(new java.awt.Color(102, 102, 102));
@@ -284,12 +287,14 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
         });
         getContentPane().add(medio, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 310, -1, -1));
 
+        dificil.setBackground(new java.awt.Color(160, 207, 209));
         dificuldade.add(dificil);
         dificil.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         dificil.setForeground(new java.awt.Color(102, 102, 102));
         dificil.setText("difícil");
         getContentPane().add(dificil, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 340, -1, -1));
 
+        categoria1.setBackground(new java.awt.Color(160, 207, 209));
         categorias.add(categoria1);
         categoria1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         categoria1.setForeground(new java.awt.Color(255, 102, 102));
@@ -301,12 +306,14 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
         });
         getContentPane().add(categoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 110, -1, -1));
 
+        categoria2.setBackground(new java.awt.Color(160, 207, 209));
         categorias.add(categoria2);
         categoria2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         categoria2.setForeground(new java.awt.Color(0, 204, 0));
         categoria2.setText("complete o código");
         getContentPane().add(categoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 140, -1, -1));
 
+        categoria3.setBackground(new java.awt.Color(160, 207, 209));
         categorias.add(categoria3);
         categoria3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         categoria3.setForeground(new java.awt.Color(204, 51, 255));
@@ -318,26 +325,28 @@ public class QuestaoSelecionada extends javax.swing.JFrame {
         });
         getContentPane().add(categoria3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 170, -1, -1));
 
+        categoria4.setBackground(new java.awt.Color(160, 207, 209));
         categorias.add(categoria4);
         categoria4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         categoria4.setForeground(new java.awt.Color(255, 153, 0));
         categoria4.setText("erro no código");
         getContentPane().add(categoria4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 200, -1, -1));
 
+        corretaA.setBackground(new java.awt.Color(160, 207, 209));
         corretas.add(corretaA);
-        corretaA.setText("jRadioButton1");
-        getContentPane().add(corretaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+        getContentPane().add(corretaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 80, -1));
 
+        corretaB.setBackground(new java.awt.Color(160, 207, 209));
         corretas.add(corretaB);
-        corretaB.setText("jRadioButton1");
         getContentPane().add(corretaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
+        corretaC.setBackground(new java.awt.Color(160, 207, 209));
         corretas.add(corretaC);
-        corretaC.setText("jRadioButton1");
+        corretaC.setSelected(true);
         getContentPane().add(corretaC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
+        corretaD.setBackground(new java.awt.Color(160, 207, 209));
         corretas.add(corretaD);
-        corretaD.setText("jRadioButton1");
         getContentPane().add(corretaD, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
 
         close.setBackground(new java.awt.Color(0, 102, 153));

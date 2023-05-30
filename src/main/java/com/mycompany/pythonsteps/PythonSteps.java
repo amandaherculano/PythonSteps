@@ -4,6 +4,8 @@
 
 package com.mycompany.pythonsteps;
 
+import jframe.LoginPage1;
+
 /**
  *
  * @author alexa
@@ -11,6 +13,7 @@ package com.mycompany.pythonsteps;
 public class PythonSteps {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        LoginPage1 Cadastro = new LoginPage1();
+        Cadastro.setVisible(true);
     }
 }

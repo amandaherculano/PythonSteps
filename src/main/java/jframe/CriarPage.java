@@ -25,6 +25,7 @@ public class CriarPage extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         
+        
     }
     
     
@@ -142,6 +143,7 @@ public class CriarPage extends javax.swing.JFrame {
         alternativaA.setRows(5);
         getContentPane().add(alternativaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 1020, 50));
 
+        categoria1.setBackground(new java.awt.Color(48, 131, 182));
         categorias.add(categoria1);
         categoria1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         categoria1.setForeground(new java.awt.Color(255, 204, 204));
@@ -153,30 +155,35 @@ public class CriarPage extends javax.swing.JFrame {
         });
         getContentPane().add(categoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 110, -1, -1));
 
+        categoria2.setBackground(new java.awt.Color(48, 131, 182));
         categorias.add(categoria2);
         categoria2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         categoria2.setForeground(new java.awt.Color(102, 255, 102));
         categoria2.setText("complete o código");
         getContentPane().add(categoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 150, -1, -1));
 
+        categoria3.setBackground(new java.awt.Color(48, 131, 182));
         categorias.add(categoria3);
         categoria3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         categoria3.setForeground(new java.awt.Color(204, 153, 255));
         categoria3.setText("função do comando");
         getContentPane().add(categoria3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 190, -1, -1));
 
+        categoria4.setBackground(new java.awt.Color(48, 131, 182));
         categorias.add(categoria4);
         categoria4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         categoria4.setForeground(new java.awt.Color(255, 255, 102));
         categoria4.setText("erro no código");
         getContentPane().add(categoria4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 230, -1, -1));
 
+        peso1.setBackground(new java.awt.Color(48, 131, 182));
         pesos.add(peso1);
         peso1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         peso1.setForeground(new java.awt.Color(255, 255, 255));
         peso1.setText("fácil");
         getContentPane().add(peso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 330, -1, -1));
 
+        peso2.setBackground(new java.awt.Color(48, 131, 182));
         pesos.add(peso2);
         peso2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         peso2.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,6 +195,7 @@ public class CriarPage extends javax.swing.JFrame {
         });
         getContentPane().add(peso2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 370, -1, -1));
 
+        peso3.setBackground(new java.awt.Color(48, 131, 182));
         pesos.add(peso3);
         peso3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         peso3.setForeground(new java.awt.Color(255, 255, 255));
@@ -199,15 +207,19 @@ public class CriarPage extends javax.swing.JFrame {
         });
         getContentPane().add(peso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 410, -1, -1));
 
+        corretaA.setBackground(new java.awt.Color(48, 131, 182));
         corretas.add(corretaA);
         getContentPane().add(corretaA, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 20, 20));
 
+        corretaB.setBackground(new java.awt.Color(48, 131, 182));
         corretas.add(corretaB);
         getContentPane().add(corretaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 20, 20));
 
+        corretaC.setBackground(new java.awt.Color(48, 131, 182));
         corretas.add(corretaC);
         getContentPane().add(corretaC, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 20, 20));
 
+        corretaD.setBackground(new java.awt.Color(48, 131, 182));
         corretas.add(corretaD);
         getContentPane().add(corretaD, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 20, 20));
 
