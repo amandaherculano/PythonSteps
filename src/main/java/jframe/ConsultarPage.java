@@ -185,7 +185,7 @@ public class ConsultarPage extends javax.swing.JFrame {
         
         int SelectedRowIndex = questoes.getSelectedRow()+ 1;
         jogador.SalvarLinha(SelectedRowIndex );
-        System.out.println(jogador.getLinha());
+        
         QuestaoSelecionada frame = new QuestaoSelecionada();
         frame.setJogador(jogador);
         frame.setVisible(true);

@@ -180,7 +180,7 @@ public class Categoria4Page extends javax.swing.JFrame {
             if (selecionada == correta){
               jogador.AddPontuacao(peso);
               JOptionPane.showMessageDialog(null, "Resposta correta.");
-              //System.out.println(jogador.getPontuacao());
+              
             }
             else {
                 JOptionPane.showMessageDialog(null, "Resposta errada.", "RESPOSTA",JOptionPane.ERROR_MESSAGE);

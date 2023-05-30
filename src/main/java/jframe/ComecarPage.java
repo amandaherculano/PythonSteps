@@ -81,7 +81,6 @@ public class ComecarPage extends javax.swing.JFrame {
 
     private void homeBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBotaoActionPerformed
         
-        System.out.println(jogador.getNome());
         if (jogador.getIsAdmin() == 1){
            HomeAdminPage frame = new HomeAdminPage();
            frame.setVisible(true);
