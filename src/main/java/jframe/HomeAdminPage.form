@@ -112,7 +112,7 @@
     <Component class="javax.swing.JButton" name="resultadoBotao">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/ResultadosBotao.jpg"/>
+          <Image iconType="3" name="/images/botaoRGerais.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>

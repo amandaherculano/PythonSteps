@@ -66,8 +66,7 @@ public class RegrasPage1 extends javax.swing.JFrame {
 
     private void setaVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setaVoltarActionPerformed
         // TODO add your handling code here:
-
-        System.out.println("apertou");
+        
         if (jogador.getIsAdmin() == 1){
             HomeAdminPage frame = new HomeAdminPage();
             frame.setVisible(true);

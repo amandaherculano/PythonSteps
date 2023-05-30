@@ -87,7 +87,7 @@ public class HomeAdminPage extends javax.swing.JFrame {
         });
         getContentPane().add(questoesBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, -1, -1));
 
-        resultadoBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ResultadosBotao.jpg"))); // NOI18N
+        resultadoBotao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/botaoRGerais.png"))); // NOI18N
         resultadoBotao.setBorder(null);
         resultadoBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
