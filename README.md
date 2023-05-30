@@ -1,5 +1,5 @@
 # PythonSteps
-Projeto .....
+O projeto PythonSteps é uma gamificação que visa o aprendizado e o treino da linguagem Python de uma forma 
 Instalação:
 baixar o arquivo Java presente nesse repositório 
 Requerimento
