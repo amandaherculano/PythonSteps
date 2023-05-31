@@ -1,0 +1,260 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Book Antiqua;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset0 Arial;}}
+{\colortbl ;\red100\green107\blue134;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\qc\cf1\f0\fs36\lang22 Instru\'e7\'f5es para a cri\'e7\'e3o do banco de dados PythonSteps no MySQL:\cf0\par
+\par
+
+\pard\sa200\sl276\slmult1\fs28 1. copie todas as instru\'e7\'f5es abaixo e cole-as em uma nova conex\'e3o no seu MySQL. \par
+
+\pard\sa200\sl240\slmult1 2.  execute-as, clicando apenas uma vez no bot\'e3o que exceuta o c\'f3digo inteiro (terceiro \'edcone da esquerda para a direita)\par
+
+\pard\sa200\sl276\slmult1\f1\fs20\par
+CREATE DATABASE pythonsteps;\par
+USE pythonsteps;\par
+\par
+CREATE TABLE usuarios(\par
+idUsuario INTEGER PRIMARY KEY AUTO_INCREMENT,\par
+ra VARCHAR(100),\par
+nome VARCHAR(100),\par
+email VARCHAR(100), \par
+senha VARCHAR(100),\par
+admin CHAR(2));\par
+\par
+CREATE TABLE questoes(\par
+id INTEGER PRIMARY KEY AUTO_INCREMENT,\par
+enunciado VARCHAR(200) UNIQUE,\par
+alternativaA VARCHAR(200),\par
+alternativaB VARCHAR(200),\par
+alternativaC VARCHAR(200),\par
+alternativaD VARCHAR(200),\par
+correta INTEGER,\par
+categoria INTEGER,\par
+feedback VARCHAR(200),\par
+peso INTEGER);\par
+\par
+CREATE TABLE tentativa (\par
+idTentativa INTEGER PRIMARY KEY AUTO_INCREMENT,\par
+idUsuario INTEGER,\par
+CONSTRAINT tentativaUsuario FOREIGN KEY (idUsuario) REFERENCES usuarios (idUsuario));\par
+\par
+CREATE TABLE resultados(\par
+ra VARCHAR(100),\par
+nome VARCHAR(100),\par
+nota INTEGER,\par
+idTentativa INTEGER,\par
+CONSTRAINT tentativaResultado FOREIGN KEY (idTentativa) REFERENCES tentativa (idTentativa));\par
+\par
+INSERT INTO questoes(enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('Qual \'e9 a fun\'e7\'e3o em Python para arredondar um n\'famero para o inteiro mais pr\'f3ximo?', 'ceil()','round()','floor()','abs()', 2, 3, 'round() arredonda n\'fameros para um n\'famero espec\'edfico de casas decimais ou para o inteiro mais pr\'f3ximo.', 1);\par
+INSERT INTO questoes(enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('Qual \'e9 a fun\'e7\'e3o em Python usada para obter o tamanho de uma lista?', 'len()','size()','length()','count()', 1, 3, 'A fun\'e7\'e3o len() em Python retorna o n\'famero de itens em um objeto iter\'e1vel, como uma lista, tupla ou string.', 1);\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('Qual \'e9 a fun\'e7\'e3o utilizada para imprimir uma mensagem na tela em Python?', 'read()', 'input()', 'print()', 'write()', 3, 3, 'A fun\'e7\'e3o print() \'e9 respons\'e1vel por exibir uma mensagem na tela, retrona na linha de comando', 1);\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('Qual \'e9 a forma correta de definir uma lista vazia em Python?', 'list = []', 'list = ()', ' list = \{\}', 'list = "" ', 1, 3, 'A forma correta de definir uma lista vazia em Python \'e9 usando colchetes vazios: [].', 1);\par
+\par
+\par
+INSERT INTO questoes(enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('frase = "Eu amo programar em Python."\par
+print(frase[3:9])', 'amo pr','Eu amo','progra','em Pyt', 1, 1, '[X:Y] Devemos dividir a string em elementos (primeiro elemento \'e9 o 0), partindo da posi\'e7\'e3o X at\'e9 a posi\'e7\'e3o Y (n\'e3o inclui o Y), imprindo do X at\'e9 a Y-1.', 1);\par
+INSERT INTO questoes(enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('x = 10\par
+y = 3\par
+print(x//y)', '3.33','3','10','0', 2, 1, 'O // retorna apenas a parte inteira da divis\'e3o', 1);\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('lista = [1, 2, 3, 4, 5]\par
+print(lista[-2])', '1', '5', '4', '3', 3, 1, 'Como existe um - na frente do n\'famero a contagem se inicia no n\'famero 1 a partir do \'faltimo elemento da lista.', 1);\par
+\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('nome = \lquote Jo\'e3o\rquote\par
+idade = 30\par
+print(f"Meu nome \'e9 \{nome\} e eu tenho \{idade\}anos.")', 'Meu nome \'e9 Jo\'e3o e eu tenho 30 anos.', 'Meu nome \'e9 nome e eu tenho idade anos.', 'Meu nome \'e9 Jo\'e3o e eu tenho 30anos. ', 'Meu nome \'e9 nome e eu tenho 30 anos.', 3, 1, 'Ir\'e1 exibir exatamente como foi escrito dentro das aspas, com todos os espa\'e7os e substituir o que est\'e1 \{\} pelo valor das vari\'e1veis', 1);\par
+\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('a = 2\par
+b = 3\par
+c = a ** b\par
+print(c)', '6', '5', '8', '9', 3, 1, ' Em python ** \'e9 a fun\'e7\'e3o utilizada para exponencia\'e7\'e3o, neste caso 2 elevado a 3.', 1);\par
+\par
+\par
+\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('Deve imprimir os n\'fameros de 0 a 4.\par
+for i in _ _ _ _ _:\par
+   print(i)', 'range(4)', 'list(range(0,4))', 'range(0,5) ', 'list(5)', 3, 2, 'range([start], [stop], [step]) A fun\'e7\'e3o range retorna uma sequ\'eancia que se inicia no primeiro n\'famero e vai de acordo com os passos at\'e9 o \'faltimo, por\'e9m n\'e3o inclui o n\'famero final nos resultados.', 1);\par
+\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('Deve criar um dicion\'e1rio vazio.\par
+dicion\'e1rio = _ _ _ _', '\{\}', '[]', '() ', '""', 1, 2, 'Os colchetes \{\} s\'e3o usados para criar um dicion\'e1rio vazio', 1);\par
+\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('Adicionar o n\'famero 6 no final da lista \ldblquote numeros\rdblquote .\par
+numeros = [1, 2, 3, 4, 5]\par
+_ _ _ _\par
+print(numeros)', 'n\'fameros.append(6) ', 'n\'fameros.extend([6])', 'n\'fameros.add(6)', 'n\'fameros.insert(6)', 1, 2, 'A fun\'e7\'e3o lista.APPEND(elemento) adiciona o elemento no final de uma lista', 1);\par
+\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('Imprimir "banana".\par
+frutas = [\ldblquote ma\'e7\'e3\rdblquote , \ldblquote banana\rdblquote , \ldblquote laranja\rdblquote ]\par
+print(_ _ _ _)', 'frutas[1] ', 'frutas[-1]', 'frutas[0]', 'frutas[2]', 1, 2, 'lista[numero] Retorna o elemento que est\'e1 naquela posi\'e7\'e3o do n\'famero na lista, a contagem de elementos se inicia em 0', 1);\par
+\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES ('Deseja imprimir o valor de cada produto.\par
+precos = \{ "arroz": 10, "mam\'e3o": 5, "ma\'e7\'e3": 3\}\par
+for item in precos:\par
+    print(precos)\par
+Selecione a alternativa com a forma correta.', 'print(item[precos])', 'print(item)', 'print(itens)', 'print(precos[item])', 4, 4, 'dicionario[chave] \'e9 a forma correta de acessar o valor atribuido a cada chave em um dicionario, neste caso ficaria precos["arroz"] para acessar o valor 10', 2);\par
+\par
+#categoria 4 peso 1\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES \par
+('valor = int(input("Digite o valor em segundos: ")\par
+horas = valor // 3600\par
+minutos = (valor % 3600) // 60\par
+print(f"Resultou em: \{horas\} horas e \{minutos\} minutos")', 'H\'e1 um erro em: \ldblquote print(f"Resultou em:\{horas\} horas e \{minutos\} minutos\rquote )\rdblquote . O correto seria \ldblquote print(f"Resultou em: (horas) horas e (minutos) minutos")\rdblquote .', 'H\'e1 um erro em \ldblquote horas = valor // 3600\rdblquote . O correto seria \ldblquote horas = valor / 3600\rdblquote ', 'H\'e1 um erro em \ldblquote valor = int(input("Digite o valor em segundos: ")\rdblquote . O correto seria \ldblquote valor = int(input("Digite o valor em segundos: "))\rdblquote .', 'H\'e1 um erro em \ldblquote minutos = (valor % 3600) // 60\rdblquote . O correto seria \ldblquote minutos = (valor / 3600) // 60\rdblquote .', 3, 4, '\'c9 necess\'e1rio fechar os par\'eanteses da fun\'e7\'e3o input', 1),\par
+('x = 5\par
+y = "10"\par
+soma = x + y\par
+print(soma)', ') H\'e1 um erro em \ldblquote y = \ldblquote 10\rdblquote\rdblquote . O correto seria \ldblquote y = 10\rdblquote .', 'H\'e1 um erro em \ldblquote soma = x + y\rdblquote . O correto seria \ldblquote soma == x + y\rdblquote .', 'H\'e1 um erro em \ldblquote print(soma)\rdblquote . O correto seria \ldblquote print(\{soma\})\rdblquote .', 'H\'e1 um erro em \ldblquote x = 5\rdblquote . O correto seria \ldblquote x = [5]\rdblquote .', 1, 4, 'Com \ldblquote\rdblquote  o c\'f3digo entender\'e1 que o y \'e9 uma string, e n\'e3o \'e9 poss\'edvel somar uma string com um valor num\'e9rico.', 1),\par
+('def soma_lista(lista):\par
+  if len(lista) == 0:\par
+    return 0\par
+  else:\par
+    return lista[0] + soma_lista(lista(1:))', 'H\'e1 um erro em \ldblquote return 0\rdblquote . O correto seria \ldblquote return\rdblquote .', 'H\'e1 um erro em \ldblquote else\rdblquote . O correto seria \ldblquote elif\rdblquote .', 'H\'e1 um erro em \ldblquote if len(lista) == 0:\rdblquote . O correto seria \ldblquote if len[lista] == 0:\rdblquote .', 'H\'e1 um erro em \ldblquote return lista[0] + soma_lista(lista(1:))\rdblquote . O correto seria \ldblquote return lista[0] + soma_lista(lista[1:])\rdblquote .', 4, 4, 'Em listas se usam chaves e n\'e3o par\'eanteses.', 1),\par
+('n = int(input(\ldblquote Entre com um n\'famero inteiro: \ldblquote ))\par
+if n / 2 == 0:\par
+    print(f\rdblquote\{n\} \'e9 par\rdblquote )\par
+else:\par
+    print(f\rdblquote\{n\} \'e9 \'edmpar\rdblquote )', 'H\'e1 um erro em \ldblquote if n / 2 == 0:\rdblquote . O correto seria \ldblquote if n % 2 == 0:\rdblquote ', 'H\'e1 um erro em \ldblquote n = int(input(\ldblquote Entre com um n\'famero inteiro: \ldblquote ))\rdblquote . O correto seria \ldblquote n = float(input(\ldblquote Entre com um n\'famero inteiro: \ldblquote ))\rdblquote .', 'H\'e1 um erro em \ldblquote print(f\rdblquote\{n\} \'e9 \'edmpar\rdblquote )\rdblquote . O correto seria \ldblquote print(f\rdblquote (n) \'e9 \'edmpar\rdblquote )\rdblquote .', 'H\'e1 um erro em \ldblquote print(f"\{n\} \'e9 par"). O correto seria \ldblquote print(f\rdblquote [n] \'e9 par\rdblquote )', 1, 4, 'Nesse exerc\'edcio, \'e9 necess\'e1rio o s\'edmbolo de m\'f3dulo (%) e n\'e3o o de divis\'e3o (/).', 1);\par
+\par
+#catagoria 4 peso 2\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES \par
+('sal\'e1rio = float(input("Digite seu sal\'e1rio: "))\par
+pc_aumento = 0.15\par
+if sal\'e1rio > 1250:\par
+    pc_aumento = 0.10\par
+aumento = sal * pc_aumento\par
+print(f"Seu aumento ser\'e1 de: R$ \{aumento:7.2f\}")', 'Na linha 5, a defini\'e7\'e3o \ldblquote sal\rdblquote  n\'e3o existe no c\'f3digo, sendo o correto \ldblquote sal\'e1rio\rdblquote .', 'No print, \ldblquote 7.2f\rdblquote  \'e9 obrigat\'f3rio, sem ele o c\'f3digo dar\'e1 erro.', ' O uso do float est\'e1 incorreto, pois o sal\'e1rio pode ser digitado como uma string.', 'Na linha 3, o \ldblquote :\rdblquote  \'e9 opcional, com ou sem o c\'f3digo ir\'e1 rodar e chegar no mesmo resultado.', 1, 4, 'N\'e3o est\'e1 definida a vari\'e1vel sal no c\'f3digo.', 2),\par
+('def greet(name):\par
+    print("Hello, " + name + "!")\par
+greet("Alice")\par
+print(name)', 'A vari\'e1vel \ldblquote Alice\rdblquote  n\'e3o \'e9 definida no c\'f3digo.', 'A fun\'e7\'e3o \ldblquote greet()\rdblquote  n\'e3o est\'e1 sendo chamada corretamente.', 'A vari\'e1vel \ldblquote name\rdblquote  est\'e1 sendo utilizada fora do escopo.', 'A string n\'e3o est\'e1 sendo concatenada corretamente.', 3, 4, 'A vari\'e1vel name \'e9 definida como um par\'e2metro da fun\'e7\'e3o greet(), ou seja, ela s\'f3 \'e9 v\'e1lida dentro do escopo dessa fun\'e7\'e3o.', 2),\par
+('x = 5\par
+y = 0\par
+result = x / y\par
+print(result)', 'A vari\'e1vel \ldblquote y\rdblquote  est\'e1 sendo dividida por zero. ', 'A vari\'e1vel \ldblquote x\rdblquote  n\'e3o est\'e1 definida corretamente. ', 'A fun\'e7\'e3o \ldblquote print()\rdblquote  est\'e1 sendo utilizada incorretamente.', 'O sinal de divis\'e3o est\'e1 incorreto.', 1, 4, 'N\'e3o \'e9 poss\'edvel dividir um valor n\'famero por zero.', 2),\par
+('def calculate_sum(a, b):\par
+    return a + b\par
+result = calculate_sum(5)\par
+print(result)', 'A fun\'e7\'e3o \ldblquote print()\rdblquote  est\'e1 sendo utilizada incorretamente.', 'A fun\'e7\'e3o \ldblquote calculate_sum()\rdblquote  n\'e3o est\'e1 sendo chamada corretamente.', 'A fun\'e7\'e3o n\'e3o possui o n\'famero correto de argumentos. ', 'A fun\'e7\'e3o n\'e3o est\'e1 retornando o resultado correto.', 3, 4, 'No momento da chamada da fun\'e7\'e3o calculate_sum, \'e9 passado apenas um argumento, mas a fun\'e7\'e3o espera dois (a e b).', 2),\par
+('numbers = [1, 2, 3, 4, 5]\par
+result = numbers[5]\par
+print(result)', 'A lista n\'e3o foi definita como \ldblquote float\rdblquote .', 'O \'edndice est\'e1 fora dos limites da lista.', 'A lista \ldblquote numbers\rdblquote  est\'e1 sendo definida de forma incorreta. ', 'A fun\'e7\'e3o \ldblquote print()\rdblquote  est\'e1 sendo utilizada incorretamente.', 2, 4, 'Em python, todas as listas come\'e7am em 0, portanto, n\'e3o existe o 5 dentro da lista numbers.', 2);\par
+\par
+#categoria 4 peso 3\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES \par
+('def calculate_area(length, width):\par
+    area = length * widht\par
+    return area\par
+result = calculate_area(5, 6)\par
+print("The area is:", result)', 'A fun\'e7\'e3o \ldblquote print()\rdblquote  est\'e1 sendo utilizada incorretamente.', 'A fun\'e7\'e3o \ldblquote calculate_area()\rdblquote  n\'e3o est\'e1 retornando o resultado correto. ', 'A vari\'e1vel \ldblquote area\rdblquote  n\'e3o est\'e1 sendo definida corretamente. ', 'A vari\'e1vel \ldblquote width\rdblquote  est\'e1 sendo escrita incorretamente.', 4, 4, 'Na linha onde \'e9 calculada a \'e1rea, o nome da vari\'e1vel width foi digitado incorretamente.', 3),\par
+('def factorial(n):\par
+    if n == 0:\par
+        return 1\par
+    else:\par
+        return n * factorial(n - 1)\par
+print(factorial(-2))', 'O c\'f3digo est\'e1 em um loop infinito. ', 'A fun\'e7\'e3o \ldblquote factorial\rdblquote  n\'e3o lida com n\'fameros negativos corretamente.', ' A fun\'e7\'e3o \ldblquote factorial\rdblquote  n\'e3o tem um caso base definido.', 'O resultado do fatorial n\'e3o est\'e1 sendo atribu\'eddo a uma vari\'e1vel.', 2, 4, 'O factorial \'e9 uma opera\'e7\'e3o matem\'e1tica definida apenas para n\'fameros inteiros n\'e3o negativos.', 3),\par
+('def calculate_factorial(n):\par
+    factorial = 1\par
+    while n > 0:\par
+        factorial *= n\par
+    return factorial\par
+result = calculate_factorial(5)\par
+print(result)', ' A fun\'e7\'e3o \ldblquote return\rdblquote  est\'e1 incorreta.', 'A fun\'e7\'e3o \ldblquote calculate_factorial()\rdblquote  n\'e3o est\'e1 retornando o resultado correto. ', 'O loop \ldblquote while\rdblquote  n\'e3o est\'e1 sendo interrompido corretamente.', 'A vari\'e1vel \ldblquote n\rdblquote  n\'e3o est\'e1 sendo definida corretamente.', 3, 4, 'N\'e3o h\'e1 uma linha dentro do loop que diminua o valor de n a cada itera\'e7\'e3o', 3);\par
+\par
+#categoria 3 peso 1\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES \par
+('Qual a fun\'e7\'e3o do operador " * " ? ', 'Realizar a multiplica\'e7\'e3o de determinados valores. ', 'Realizar a adi\'e7\'e3o de determinados valores. ', 'Realizar a exponencia\'e7\'e3o de um n\'famero pelo outro. ', 'Realizar a subtra\'e7\'e3o de determinados valores. ', 1, 3, 'O operador " * " \'e9 usado para multiplica\'e7\'e3o em Python, por exemplo: 2*2 = 4. ', 1),\par
+('Qual a fun\'e7\'e3o do operador " / " ? ', 'Realizar a multiplica\'e7\'e3o de valores. ', 'Realizar a divis\'e3o de determinados valores. ', 'Dar um espa\'e7o entre dois valores no c\'f3digo. ', 'Pular uma linha no c\'f3digo. ', 2, 3, 'O operador " / " \'e9 usado para divis\'e3o em Python, por exemplo: 4/2 = 2. ', 1),\par
+('Qual a fun\'e7\'e3o do operador " != " ? ', 'Verificar/ indicar que determinados valores s\'e3o iguais. ', 'Esse comando n\'e3o existe em python. ', 'Verificar/ indicar que determinados valores s\'e3o diferentes. ', 'Dar \'eanfase para determinado valor. ', 3, 3, 'O operador " != " \'e9 usado para verificar ou indicar valores diferentes em Python, por exemplo: 10 !=20 retorna True. ', 1),\par
+('Qual a fun\'e7\'e3o do comando "input() "? ', 'Ler um valor ou mensagem de entrada do usu\'e1rio. ', 'Exibir uma mensagem ou valor na sa\'edda. ', 'Criar uma fun\'e7\'e3o. ', 'Inserir uma fun\'e7\'e3o. ', 1, 3, 'O comando " input() " \'e9 usado para ler um valor ou mensagem de entrada atribu\'edda pelo usu\'e1rio, por exemplo:  \par
+nome = input ("Digite seu nome: ")', 1);\par
+\par
+#categoria 3 peso 2\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES \par
+('Qual a fun\'e7\'e3o do comando " sorted() " ? ', 'Realiza a ordena\'e7\'e3o de elementos em ordem decrescente. ', 'Retornar o n\'famero de elementos em um objeto.  ', 'Verifique se um elemento est\'e1 presente em um objeto.  ', 'Realiza a ordena\'e7\'e3o de elementos em ordem crescente. ', 4, 3, 'O comando " sorted() " \'e9 usado para ordenar os elementos em ordem crescente, por exemplo: \par
+print( sorted( [5, 2, 3, 1, 4] ) ) ', 2),\par
+('Qual a fun\'e7\'e3o do comando " lower() " ? ', ' Converter uma string para letras mai\'fasculas. ', 'Converter uma string para letras min\'fasculas.  ', 'Remover espa\'e7os em branco no in\'edcio e no final de uma string.  ', 'Esse comando n\'e3o existe em python. ', 2, 3, 'O comando " lower() " \'e9 usado para converter uma string para letras min\'fasculas, por exemplo: \par
+string = "PyTh"\par
+print(string.lower()) ', 2);\par
+\par
+#categoria 3 peso 3\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES \par
+('Qual a fun\'e7\'e3o do comando " def "? ', 'Definir uma estrutura condicional.', 'Definir uma fun\'e7\'e3o personalizada.  ', 'Importar um m\'f3dulo externo.\~', 'Criar uma vari\'e1vel global. ', 2, 3, 'O comando " def " \'e9 usado para definir uma fun\'e7\'e3o, por exemplo: \par
+def hello(meu_nome):', 3),\par
+('Qual a fun\'e7\'e3o do comando " zip () "? ', ' Comprima arquivos e diret\'f3rios em um arquivo zip.\~', ' Une duas ou mais listas em uma \'fanica lista.\~', 'Cria uma matriz bidimensional a partir de listas.\~', 'Verifique se um elemento est\'e1 presente em uma lista. ', 2, 3, 'O comando " zip() " \'e9 usado para unir duas ou mais listas.', 3),\par
+('Qual a fun\'e7\'e3o do comando " .split() "?', 'Dividir uma string em uma lista de caracteres individuais.  ', 'Separar uma string em substrings com base em um caractere delimitador.  ', 'Remover espa\'e7os em branco no in\'edcio e no final de uma corda.  ', ' Substituir ocorr\'eancias de uma substring por outra em uma string. ', 1, 3, 'O comando " .split() " \'e9 usado para dividir uma string em uma lista de caracteres individuais, por exemplo:\par
+nome = "Jo\'e3o Paulo", aplicando o nome.split() o resultado ser\'e1 ["Jo\'e3o", "Paulo"]', 3),\par
+('Qual a fun\'e7\'e3o do comando " pop () "? ', ' Inserir um elemento no in\'edcio de uma lista.  ', 'Remover do \'faltimo elemento de uma lista.  ', 'Remover o primeiro elemento de uma lista.\~', 'Inverter a ordem dos elementos em uma lista. ', 2, 3, '\tab O comando " pop() " \'e9 usado para remover o \'faltimo elemento de uma lista, por exemplo:\par
+list1 = [ 1, 2, 3, 4, 5, 6 ] assim print(list1.pop()) ir\'e1 imprimir o 6', 3),\par
+('Qual a fun\'e7\'e3o do comando " keys() " em um dicion\'e1rio?', ' Retornar uma lista com todos os valores presentes no dicion\'e1rio.  ', 'Retornar uma lista com todas as chaves presentes no dicion\'e1rio.  ', 'Retornar o n\'famero total de elementos presentes no dicion\'e1rio.  ', 'Ordena os elementos do dicion\'e1rio em ordem alfab\'e9tica.', 2, 3, '\tab O comando " keys() " \'e9 usado para retornar uma lista com todas as chaves presentes no dicion\'e1rio', 3);\par
+#categoria 2 peso 2\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES\par
+('O c\'f3digo verifica se um n\'famero \'e9 positivo.\par
+def verificar_positivo(numero):\par
+   if _________:\par
+      return True\par
+   else:\par
+   return False','numero > 0','numero < 0','numero == 0 ','numero >= 0', 4, 2,'Alternativa correta para completar esse c\'f3digo \'e9  " numero >= 0  ", pois um n\'famero positivo deve ser maior ou igual a zero.',2),\par
+('O c\'f3digo deve calcular a soma de dois n\'fameros.\par
+\tab a = 5\par
+\tab b = 3\par
+\tab divisao= ____\par
+print(divisao)','a - b ',' a + b ','a * b ',' a / b', 4, 2,'O / \'e9 respons\'e1vel por dividir um n\'famero pelo outro.',2),\par
+('O seguinte c\'f3digo deve definir uma vari\'e1vel inteira chamada "idade" com o valor 25.\par
+\tab\par
+idade= ___','25','"25"','idade ','Nenhuma ', 1, 2,'O = atribui um valor a uma vari\'e1vel, neste caos um n\'famero inteiro.',2);\par
+\par
+#categoria 2 peso 3\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES\par
+('O c\'f3digo deve verificar se um n\'famero \'e9 par?\par
+def verificar_par(numero):\par
+    if _________:\par
+        return True\par
+    else:\par
+        return False','numero % 2 == 0 ','numero % 2 != 0','numero % 2','Nenhum',1 , 2,' A opera\'e7\'e3o "numero % 2" ir\'e1 retornar o resto da divis\'e3o do n\'famero por 2, assim se esse resto for 0 o numero \'e9 par.',3),\par
+('O C\'f3digo deve imprimir o n\'famero de telefone de Mariana.\par
+contatos_lista = [("Yan", "1234-5678"), ("Pedro", "9999-9999"), ("Ana", "8765-4321"), ("Marina", "8877-7788")]\par
+print(___)','contatos_lista[3][1]','contatos_lista.mariana','contatos_lista(mariana)','contatos_lista[4][2]', 1, 2,'Primeiro deve acessar a tupla que cont\'e9m os dados da Mariana, lista[3] e depois qual posi\'e7\'e3o dentro da tupla est\'e1 [1], resultando em lista_contatos[3][1]',3),\par
+('O c\'f3digo deve ordenar a lista de forma crescente.\par
+lista = [4, 1, 3, 2]\par
+lista._____','crescente()','sorted() ','order()','organize()',2 , 2,'O sorted() ordena a lista de forma crescente',3),\par
+('c\'f3digo itera sobre um dicion\'e1rio e imprime as chaves.\par
+computador = \{ "CPU":  "Intel"  , "RAM" :  "8gb " , "SSD" :  "250bg"\}\par
+print(computador. ____ )','keys()','values()','dicionario.items()','chave()',1 , 2,'O comando dicionario.keys() retorna as chaves do dicionario',3);\par
+\par
+#categoria 1 peso 2\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES\par
+('Qual ser\'e1 a sa\'edda do c\'f3digo?\par
+lista = [1, 2, 3, 4, 5]\par
+print(len(lista))', '1', '2 ', '3', '5', 4, 1, 'A fun\'e7\'e3o len() retorna o comprimento da lista, que no caso \'e9 5, pois a lista cont\'e9m 5 elementos.', 2),\par
+('Qual ser\'e1 a sa\'edda do c\'f3digo?\par
+numeros = [1, 2, 3, 4, 5]\par
+soma = sum(numeros)\par
+print(soma)', ' 3 ', '10', '15 ', '25', 3, 1, 'A fun\'e7\'e3o sum() \'e9 utilizada para calcular a soma dos elementos de uma lista.', 2),\par
+('Qual ser\'e1 a sa\'edda do c\'f3digo?\par
+x = 2\par
+y = 5\par
+z = x ** y\par
+print(z)', '7 ', '10 ', '25 ', '32', 4 , 1, 'O operador ** \'e9 utilizado para realizar a exponencia\'e7\'e3o. ', 2),\par
+('Qual ser\'e1 a saida do c\'f3digo?\par
+frase = "Hello, World!"\par
+print(frase.upper())', 'hello, world! ', 'Hello, World! ', 'HELLO, WORLD! ', 'hELLO, wORLD!', 3, 1, 'O m\'e9todo upper() \'e9 utilizado para transformar todos os caracteres de uma string em letras mai\'fasculas.', 2);\par
+\par
+#categoria 1 peso 3\par
+INSERT INTO questoes (enunciado, alternativaA, alternativaB, alternativaC, alternativaD, correta, categoria, feedback, peso) VALUES\par
+('Qual ser\'e1 a sa\'edda do c\'f3digo?\par
+x = "banana"\par
+y = x.count("a")\par
+print(y)','1','2','3','4', 3,1,'O m\'e9todo count() \'e9 usado para contar o n\'famero de ocorr\'eancias de um determinado caractere ou substring em uma string.',3),\par
+('texto = "Hello, World!"\par
+print(texto[7:12])',' Hello ','World ','Wo ','Wo, W', 2, 1,'O fatiamento texto[7:12] retorna uma substring que come\'e7a no \'edndice 7 (inclusive) e vai at\'e9 o \'edndice 12 (exclusive), resultando na palavra "World".', 3 ),\par
+('Qual ser\'e1 a sa\'edda do c\'f3digo?\par
+numeros = [1, 2, 3, 4, 5]\par
+soma = 0\par
+for num in numeros:\par
+    if num % 2 == 0:\par
+        soma += num\par
+print(soma)','6','9','10','15',1 , 1,'O c\'f3digo itera sobre a lista numeros e verifica se cada n\'famero \'e9 par. Se for par, ele \'e9 adicionado \'e0 vari\'e1vel soma.', 3),\par
+('def soma(x, y):\par
+    return x + y\par
+resultado = soma("2", "3")\par
+print(resultado)',' 5 ','"5" ','6','"23"', 4, 1,'Os par\'e2metros "2" e "3" s\'e3o passados como strings e em Python, quando concatena duas strings usando o operador +, elas s\'e3o simplesmente concatenadas.', 3);\par
+\f2\fs22\par
+}
+ 
