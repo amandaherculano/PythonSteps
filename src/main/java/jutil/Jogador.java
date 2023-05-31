@@ -25,6 +25,8 @@ public class Jogador {
     String ra;
     int idUsuario;
     
+    
+    
     public void SalvarNome(String nome){
         this.nome =  nome;
     }

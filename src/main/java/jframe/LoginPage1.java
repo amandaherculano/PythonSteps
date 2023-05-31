@@ -21,6 +21,7 @@ public class LoginPage1 extends javax.swing.JFrame {
     
     Jogador jogador = new Jogador();
     
+    
     /**
      * Creates new form LoginPage1
      */
