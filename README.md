@@ -4,7 +4,7 @@ O projeto PythonSteps é uma Gamificação Educacional da Disciplina de Lógica 
 
 ## Instalação e Requerimentos:
      
-     PythonSteps.jar:
+     PythonSteps.jar localizado nos arquivos acima.
 
      Java (versão mais recente)
 
