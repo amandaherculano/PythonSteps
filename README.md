@@ -74,4 +74,4 @@ Porém para facilitar a consulta do professor, é possível buscar pelo Registro
 ### LogOut
 #
 
-Em todas as páginas do jogo, exceto a das questões, é possível fazer logOut para sair, assim será direcionado para a página de Login.
+Em todas as páginas do jogo, exceto a das questões, é possível fazer LogOut para sair, assim será direcionado para a página de Login.
