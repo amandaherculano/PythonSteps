@@ -8,3 +8,7 @@ necessário ter Java (versão mais recente ) instalado na sua máquina
 após instalado iniciar o game 
 no que se baseia
 TUTORIAL DO JOGO 
+
+
+## integrantes: 
+- amanda 
