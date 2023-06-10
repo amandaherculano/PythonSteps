@@ -3,54 +3,79 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package jutil;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import jutil.Jogador;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  * @author rafae
  */
 public class conector {
-
     
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-
     private static final String URL = "jdbc:mysql://localhost:3306/pythonsteps";
-
-    //como relaciono com jogador aqui? importo?
-    private static final String USER = "root";
-
-    private static final String PASSWORD = "aa";
-
+    
+    private static boolean isConnected = false;// Variável para controlar se a conexão já foi estabelecida
+   
+    public static String usuarioMySQL = null;
+    public static String senhaMySQL =  null;
+    
+   
     public static Connection getConnection() throws Exception {
-        try {
-            //Class.forName(DRIVER);
+        if (isConnected) {
+            // Conectado
+            return DriverManager.getConnection(URL,usuarioMySQL, senhaMySQL);
+        }
 
-            Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-            //System.out.println("Connected");
+        Connection conn = null;
+        boolean tentarNovamente = true;
 
-            return conn;
-        } catch (SQLException e) {
-            Connection conn2;
-            conn2 = null;
-            while (conn2 == null){
-                try { 
-                    String usuarioMySQL;
-                    String senhaMySQL;
-
-                usuarioMySQL = JOptionPane.showInputDialog(null, "Insira seu usuário do MySQL: ");
-                senhaMySQL = JOptionPane.showInputDialog(null, "Insira sua senha do MySQL: ");
-                conn2 = DriverManager.getConnection(URL, usuarioMySQL, senhaMySQL);
-                System.err.println(e);
-
-                return conn2;
-                } catch (SQLException e2) {
-                    conn2 = null;
-                }
+        while (conn == null && tentarNovamente) {
+            if (usuarioMySQL == null || senhaMySQL == null) {
+                readCredentialsFromDialog();
             }
-            return null;
+
+            try {
+                conn = DriverManager.getConnection(URL, usuarioMySQL, senhaMySQL);
+                isConnected = true; // Conectado
+            } catch (SQLException error) {
+                System.err.println(error);
+                int option = JOptionPane.showOptionDialog(null, "Credenciais incorretas. Deseja tentar novamente?", "Acesso ao Banco de Dados",
+                        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                        new String[]{"Sim", "Não"}, "Sim");
+                if (option == JOptionPane.NO_OPTION) {
+                    tentarNovamente = false;
+                    break;
+                
+                }
+                usuarioMySQL = null;
+                senhaMySQL  = null;
+            }
+        }
+
+        return conn;
+    }
+
+     private static void readCredentialsFromDialog() {
+        JPasswordField passwordField = new JPasswordField();
+        JTextField userField = new JTextField();
+
+        Object[] message = {
+            "Usuário:", userField,
+            "Senha:", passwordField
+        };
+
+        int option = JOptionPane.showConfirmDialog(null, message, "Acesso ao Banco de Dados", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        if (option == JOptionPane.OK_OPTION) {
+            usuarioMySQL = userField.getText();
+            senhaMySQL = new String(passwordField.getPassword());
+        } else {
+            JOptionPane.showMessageDialog(null, "Operação cancelada pelo usuário.", "Acesso ao Banco de Dados", JOptionPane.WARNING_MESSAGE);
         }
     }
 }
