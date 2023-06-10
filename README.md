@@ -13,7 +13,7 @@ O projeto PythonSteps é uma Gamificação Educacional da Disciplina de Lógica 
      MySQL (versão mais recente) 
 
 
-- com o Java e o PythonSteps.jar instalados, basta clicar duas vezes no PythonSteps.jar para rodar o PythonSteps
+- com o Java e o PythonSteps.jar  instalados, além do MySQL instalado com o banco de dados PythonSteps criado basta clicar duas vezes no PythonSteps.jar para rodar o PythonSteps
 
 ## Tutorial Criar Banco de Dados PythonSteps: 
  - Baixar o arquivo texto "Tutorial.BancoDeDados.MySQL" localizado nos arquivos acima
