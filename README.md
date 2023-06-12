@@ -1,5 +1,5 @@
-# PythonSteps
-O projeto PythonSteps é uma Gamificação Educacional da Disciplina de Lógica de Programação, que aborda a linguagem Python, portanto que visa o aprendizado e o treino desta linguagem de uma forma mais dinâmica, além de proporcionar ao Professor um acompanhamento do desenvolvimento dos alunos com possível gerenciamento das questões presentes no jogo.
+# Python Steps
+O projeto Python Steps é uma Gamificação Educacional da Disciplina de Lógica de Programação, que aborda a linguagem, portanto que visa o aprendizado e o treino desta linguagem de uma forma mais dinâmica, além de proporcionar ao Professor um acompanhamento do desenvolvimento dos alunos com possível gerenciamento das questões presentes no jogo.
 
 
 ## Instalação e Requerimentos:
@@ -21,7 +21,7 @@ O projeto PythonSteps é uma Gamificação Educacional da Disciplina de Lógica 
  - colar em uma nova conexão no MySQL 
  - executar as instruções
 
-## Tutorial PythonSteps:
+## Tutorial Python Steps:
 O jogo irá iniciar na Página de Login, portanto se você já tiver um login basta inserir seu Registro de Usuário e Senha cadastrados e será direcionado para a Página Principal, porém se ainda não tiver cadastro deve selecionar o botão "Cadastrar"
 
 Para o sistema estabelecer uma conexão com o seu banco de dados criado no MySQL deverá inserir no campo instruido seu usuário e senha do MySQL. 
@@ -55,7 +55,7 @@ O jogo consiste em um quiz de 5 perguntas sorteadas de forma aleatória, que sã
 
 Após responder as 5 questões, as páginas de feedback para cada uma delas serão exibidas, com a pontuação total do jogador de acordo com seu desempenho. Essas páginas de feedback possuem o enunciado, as alternativas, a alternativa correta, seu peso (1 , 2 ou 3) e uma breve explicação do porquê da resposta. 
 
-### Regras do PythonSteps
+### Regras do Python Steps
 #
 - só é possível passar para o próxima questão após selecionar uma alternativa e terá apenas uma chance para respondê-la
 - quando o jogo iniciar todas as perguntas devem ser respondidas para que seja gerado um feedback para todas as perguntas ao encerrar
