@@ -76,7 +76,7 @@ A principal função atribuida excluisvamente para os usuários cadastrados como
 ### Ver Resultados
 #
 
-Os usários cadastrados como Aluno possuem acesso apenas aos seus reusltados, aonde é exibido sem nome, seu RA e suas pontuações em cada jogo que realizou.
+Os usários cadastrados como Aluno possuem acesso apenas aos seus resultados, aonde é exibido sem nome, seu RA e suas pontuações em cada jogo que realizou.
 
 Já os usuários cadastrados como Professor, podem ver os resultados gerais, de todos os usuários, a partir de um tabela que contém o nome, registro de usuário e pontuação de cada um.  
 
