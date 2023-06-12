@@ -1,5 +1,5 @@
 # Python Steps
-O projeto Python Steps é uma Gamificação Educacional da Disciplina de Lógica de Programação, que aborda a linguagem, portanto que visa o aprendizado e o treino desta linguagem de uma forma mais dinâmica, além de proporcionar ao Professor um acompanhamento do desenvolvimento dos alunos com possível gerenciamento das questões presentes no jogo.
+O projeto Python Steps é uma Gamificação Educacional da Disciplina de Lógica de Programação, que aborda a linguagem Python, portanto que visa o aprendizado e o treino desta linguagem de uma forma mais dinâmica, além de proporcionar ao Professor um acompanhamento do desenvolvimento dos alunos com possível gerenciamento das questões presentes no jogo.
 
 
 ## Instalação e Requerimentos:
