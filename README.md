@@ -80,7 +80,7 @@ Os usários cadastrados como Aluno possuem acesso apenas aos seus resultados, ao
 
 Já os usuários cadastrados como Professor, podem ver os resultados gerais, de todos os usuários, a partir de um tabela que contém o nome, registro de usuário e pontuação de cada um.  
 
-Porém para facilitar a consulta do professor, é possível buscar pelo Registro de Usuário apenas os resultados de determinado Aluno ou até mesmo Professor, portanto para filtrar é preciso digitar no espaço indicado no canto superior direito e clicar no botão com ícone de lupa para realizar pesquisa. Após essa consulta específica se desejar voltar para a tabela complet basta clicar no botão "atualizar" no canto superior esquerdo.
+Porém para facilitar a consulta do professor, é possível buscar pelo Registro de Usuário apenas os resultados de determinado Aluno ou até mesmo Professor, portanto para filtrar é preciso digitar no espaço indicado no canto superior direito e clicar no botão com ícone de lupa para realizar pesquisa. Após essa consulta específica se desejar voltar para a tabela completa basta clicar no botão "atualizar" no canto superior esquerdo.
 
 
 ### LogOut
